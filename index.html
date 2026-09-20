@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cairn | A men's group and end-of-life doula care in DC</title>
+  <meta name="description" content="Back Nine, a ten-week men's group, and end-of-life doula care for people and companion animals in the DC area.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cellipse cx='16' cy='25' rx='12' ry='5' fill='%2359636a'/%3E%3Cellipse cx='16' cy='17' rx='8' ry='4' fill='%2377807f'/%3E%3Cellipse cx='16' cy='10' rx='5' ry='3' fill='%23a3a89f'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Young+Serif&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page-home">
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- MOCK-UP BAR: delete this line before launch -->
+  <div class="mock-bar">Mock-up. The name, prices, dates and copy are placeholders.</div>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html" aria-label="Cairn home">
+        <svg viewBox="0 0 32 32" aria-hidden="true">
+          <ellipse cx="16" cy="25" rx="12" ry="5" fill="currentColor" opacity="0.9"/>
+          <ellipse cx="16" cy="17" rx="8" ry="4" fill="currentColor" opacity="0.65"/>
+          <ellipse cx="16" cy="10" rx="5" ry="3" fill="currentColor" opacity="0.4"/>
+        </svg>
+        Cairn
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="gather.html">Gather</a></li>
+          <li><a href="guide.html">Guide</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <div class="wrap">
+      <section class="hero">
+        <div>
+          <h1>A place to mark the way.</h1>
+          <p class="lede">A cairn is a stack of stones left by someone who came through before you, so the next person knows they're on the path. That's what I'm building here, for the hard and holy parts of being human.</p>
+          <p class="lede">A men's group where guys can show up as all of themselves. And end-of-life care for people, and for the animals we love.</p>
+          <div class="actions">
+            <a class="btn btn-solid" href="gather.html">Join the men's group</a>
+            <a class="btn btn-line" href="guide.html">Doula services</a>
+          </div>
+        </div>
+
+        <!-- The cairn. Stones settle in one at a time on page load (once). -->
+        <svg class="cairn" viewBox="0 0 320 390" role="img" aria-label="A stack of five river stones">
+          <defs>
+            <linearGradient id="shade" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#ffffff" stop-opacity="0.22"/>
+              <stop offset="0.55" stop-color="#ffffff" stop-opacity="0"/>
+              <stop offset="1" stop-color="#000000" stop-opacity="0.25"/>
+            </linearGradient>
+            <path id="s1" d="M40 320 C30 290 80 268 160 266 C240 266 292 288 282 320 C274 350 220 362 160 362 C100 362 48 352 40 320 Z"/>
+            <path id="s2" d="M78 262 C74 238 110 222 162 222 C216 222 250 238 244 262 C238 284 206 292 160 292 C116 292 84 284 78 262 Z"/>
+            <path id="s3" d="M104 218 C102 198 130 186 166 186 C202 186 226 198 222 218 C218 236 194 244 162 244 C130 244 106 236 104 218 Z"/>
+            <path id="s4" d="M126 184 C126 168 146 160 168 160 C190 160 206 168 204 184 C200 198 184 204 165 204 C146 204 128 198 126 184 Z"/>
+            <path id="s5" d="M146 158 C146 146 158 140 170 140 C182 140 190 148 188 158 C185 168 176 172 166 172 C156 172 147 168 146 158 Z"/>
+          </defs>
+          <ellipse cx="160" cy="366" rx="128" ry="12" fill="#1c2725" opacity="0.16"/>
+          <g class="stone" style="--i:0"><use href="#s1" fill="var(--stone-1)"/><use href="#s1" fill="url(#shade)"/></g>
+          <g class="stone" style="--i:1"><use href="#s2" fill="var(--stone-4)"/><use href="#s2" fill="url(#shade)"/></g>
+          <g class="stone" style="--i:2"><use href="#s3" fill="var(--stone-2)"/><use href="#s3" fill="url(#shade)"/></g>
+          <g class="stone" style="--i:3"><use href="#s4" fill="var(--stone-3)"/><use href="#s4" fill="url(#shade)"/></g>
+          <g class="stone" style="--i:4"><use href="#s5" fill="var(--stone-5)"/><use href="#s5" fill="url(#shade)"/></g>
+        </svg>
+      </section>
+    </div>
+
+    <div class="wrap">
+      <section class="doors" aria-label="Two ways in">
+        <div class="door door-gather">
+          <p class="door-name">Gather</p>
+          <h2>Back Nine</h2>
+          <p>A ten-week men's group. Once a week we sit in a circle and talk about love, death, family, purpose and brotherhood. Some weeks start with a poem or a few minutes of breath work. Small cohorts, limited spots.</p>
+          <p><a class="door-link" href="gather.html">See the next cohort</a></p>
+        </div>
+        <div class="door door-guide">
+          <p class="door-name">Guide</p>
+          <h2>End-of-life doula care</h2>
+          <p>Practical and emotional support for people who are dying, the families around them, and the people who love an animal near the end. Non-medical, unhurried, and there when it counts.</p>
+          <p><a class="door-link" href="guide.html">See services</a></p>
+        </div>
+      </section>
+    </div>
+
+    <section class="block">
+      <div class="wrap split">
+        <h2>Why these two live together</h2>
+        <div>
+          <p>We're spirits having a human experience, and most of us were never taught how to do the human part. How to feel things and say them out loud. How to lose someone. How to look at our own ending without flinching.</p>
+          <p>The men's group is where you practice that with other guys. The doula work is where it gets very real. If you're in one, you'll know where to find the other.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block block-fog" id="about">
+      <div class="wrap about">
+        <div class="photo">Photo of Jason goes here</div>
+        <div>
+          <h2>Hi, I'm Jason.</h2>
+          <p>I grew up in Connecticut and live in DC. I'm a documentary filmmaker and teacher, and I'm a certified end-of-life doula for both people and companion animals, trained through the University of Vermont.</p>
+          <p>I went through a ten-week men's program and wanted DC to have one. I facilitate the group and I do the doula work myself, one person and one family at a time.</p>
+          <p>I'm not here to tell you what to believe. I'm here to keep you company while you figure it out.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap foot">
+      <div>
+        <a class="brand" href="index.html" aria-label="Cairn home">
+          <svg viewBox="0 0 32 32" aria-hidden="true">
+            <ellipse cx="16" cy="25" rx="12" ry="5" fill="currentColor" opacity="0.9"/>
+            <ellipse cx="16" cy="17" rx="8" ry="4" fill="currentColor" opacity="0.65"/>
+            <ellipse cx="16" cy="10" rx="5" ry="3" fill="currentColor" opacity="0.4"/>
+          </svg>
+          Cairn
+        </a>
+        <p>Washington, DC area<br><a href="mailto:hello@example.com">hello@example.com</a></p>
+      </div>
+      <div>
+        <ul>
+          <li><a href="gather.html">Gather</a></li>
+          <li><a href="guide.html">Guide</a></li>
+        </ul>
+        <p>Back Nine is a peer group, not therapy. Doula care is non-medical support and does not replace your medical team, and I don't give medical, legal or financial advice.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
