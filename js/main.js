@@ -53,3 +53,9 @@ if (form) {
 
 const y = document.getElementById('year');
 if (y) y.textContent = new Date().getFullYear();
+
+// Pre-check the workbook option when coming from the workbook page
+if (new URLSearchParams(location.search).get('interest') === 'workbook') {
+  const w = document.getElementById('int-workbook');
+  if (w) w.checked = true;
+}
