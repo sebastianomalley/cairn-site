@@ -173,7 +173,7 @@ P["what-is-a-doula.html"] = ("What is a death doula? | Everything Is Already All
   </div>
 </section>
 
-<section class="sec tone-sand">
+<section class="sec tone-sage">
   <div class="wrap split">
     <div class="side"><div class="stick"><p class="eyebrow">Day to day</p><h2>What it can <em>look like</em></h2><p class="small" style="margin-top:14px">Every family is different. These are just a few examples.</p></div></div>
     <div class="main rows reveal">
@@ -188,11 +188,28 @@ P["what-is-a-doula.html"] = ("What is a death doula? | Everything Is Already All
 </section>
 
 <section class="sec">
+  <div class="wrap split">
+    <div class="side"><div class="stick"><p class="eyebrow">Part of the team</p><h2>One more person <em>in your corner</em></h2></div></div>
+    <div class="main reveal">
+      <p class="lede">I work alongside everyone involved in your care. Your doctors, nurses, hospice team, faith leaders and family all stay right where they are. I don't replace anyone. I add another layer of support, and help everyone stay connected to what you want.</p>
+      <div class="who" style="grid-template-columns:repeat(2,1fr);margin-top:30px">
+        <div><h4>Doctors and nurses</h4><p>Your medical care, diagnosis and treatment.</p></div>
+        <div><h4>Hospice and palliative care</h4><p>Comfort-focused medical care, at home or in a facility.</p></div>
+        <div><h4>Chaplains and faith leaders</h4><p>Spiritual care within your tradition. I'm glad to work right alongside yours.</p></div>
+        <div><h4>Social workers</h4><p>Resources, benefits and the practical systems around care.</p></div>
+        <div><h4>Family and friends</h4><p>The heart of it all. My job is to support them, never to replace them.</p></div>
+        <div><h4>Your doula</h4><p>Non-medical companionship, planning and presence for you and everyone around you.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tone-sand">
   <div class="wrap">
     <div class="narrow center" style="margin-bottom:50px">
-      <p class="eyebrow">Doula and hospice</p>
-      <h2>Side by side, <em>never instead of</em></h2>
-      <p class="lede">Hospice is wonderful, and I work alongside hospice teams, not in place of them. Here's how the two fit together.</p>
+      <p class="eyebrow">A common question</p>
+      <h2>Isn't that what <em>hospice</em> does?</h2>
+      <p class="lede">It's one of the questions I hear most. The short answer is no, and the two work beautifully together. Hospice provides medical comfort care. A doula offers time, companionship and practical support. Here's the difference.</p>
     </div>
     <table class="compare reveal">
       <thead><tr><th></th><th>Hospice team</th><th>End-of-life doula</th></tr></thead>
@@ -205,12 +222,6 @@ P["what-is-a-doula.html"] = ("What is a death doula? | Everything Is Already All
         <tr><th>Cost</th><td data-l="Hospice">Typically covered by Medicare, Medicaid and most insurance.</td><td data-l="Doula">Paid privately for now. Insurance doesn't cover doula care yet, though many of us are working to change that.</td></tr>
       </tbody>
     </table>
-    <div class="who reveal">
-      <div><h4>Palliative care</h4><p>Medical comfort care at any stage of a serious illness, often alongside treatment.</p></div>
-      <div><h4>Chaplains and faith leaders</h4><p>Spiritual care within your tradition. I'm glad to work right alongside yours.</p></div>
-      <div><h4>Social workers</h4><p>Help with resources, benefits and the practical systems around care.</p></div>
-      <div><h4>Family and friends</h4><p>The heart of it all. My job is to support them, never to replace them.</p></div>
-    </div>
   </div>
 </section>
 
