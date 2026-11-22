@@ -146,7 +146,7 @@ P["index.html"] = ("Everything Is Already All Right | End-of-life doula care wit
     <p class="quote-by">Jason O'Malley</p>
   </div>
 </section>
-{nxt("what-is-a-doula.html", "Step one", "So what <em>is</em> a death doula?")}
+{nxt("what-is-a-doula.html", "Step one", "What exactly is a <em>death doula?</em>")}
 ''')
 
 # ---------------------------------------------------------------- STEP 1
@@ -156,7 +156,7 @@ P["what-is-a-doula.html"] = ("What is a death doula? | Everything Is Already All
   {RINGS}
   <div class="inner">
     <p class="eyebrow">Step one · Understand</p>
-    <h1>So what is a death doula, <em>really?</em></h1>
+    <h1>What exactly is a <em>death doula?</em></h1>
     <p class="lede">The short answer, the longer answer, and how it all fits with hospice.</p>
   </div>
 </section>
@@ -317,7 +317,7 @@ P["how-it-works.html"] = ("How it works | Everything Is Already All Right",
     <p class="eyebrow">The process</p>
     <h2>Four simple <em>steps</em></h2>
     <div class="steps reveal">
-      <div class="step"><h3>Read the free guide</h3><p>A short, friendly fold-out with the basics and some good questions to sit with.</p></div>
+      <div class="step"><h3>Read the free guide</h3><p>A short, friendly read with the basics and a few gentle questions to sit with.</p></div>
       <div class="step"><h3>Have a free call</h3><p>Twenty minutes to say hello, ask anything and see if we're a good fit.</p></div>
       <div class="step"><h3>Shape your plan</h3><p>We decide together what support looks like. You get a simple written agreement with the cost up front.</p></div>
       <div class="step"><h3>Begin</h3><p>We start wherever you are, and adjust as life changes.</p></div>
@@ -344,11 +344,11 @@ P["how-it-works.html"] = ("How it works | Everything Is Already All Right",
       <div class="copy">
         <p class="eyebrow">Free download</p>
         <h3 style="font-size:2rem">Start with the guide</h3>
-        <p style="color:var(--muted)">A friendly fold-out for anyone who's never heard the words "death doula." Easy to share with family.</p>
-        <ul><li>What a doula is, and isn't</li><li>Questions people ask</li><li>Questions worth sitting with</li><li>Three small first steps</li></ul>
-        <div class="btn-row" style="margin-top:26px"><a class="btn" href="downloads/death-doula-guide.pdf" download>Download the guide</a></div>
+        <p style="color:var(--muted)">A short, friendly read for anyone who's never heard the words "death doula." Easy to share with family.</p>
+        <ul><li>What a doula is, and isn't</li><li>Questions people ask</li><li>Doula and hospice, side by side</li><li>Questions worth sitting with, no answers required</li></ul>
+        <div class="btn-row" style="margin-top:26px"><a class="btn" href="downloads/what-is-a-death-doula-guide.pdf" download>Download the guide</a></div>
       </div>
-      <div class="art"><span class="t">Let's talk about the part <em>nobody talks about.</em></span></div>
+      <div class="art"><span class="t">What exactly is a <em>death doula?</em></span></div>
     </div>
   </div>
 </section>
