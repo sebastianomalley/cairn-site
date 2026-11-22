@@ -345,7 +345,7 @@ P["how-it-works.html"] = ("How it works | Everything Is Already All Right",
         <p class="eyebrow">Free download</p>
         <h3 style="font-size:2rem">Start with the guide</h3>
         <p style="color:var(--muted)">A friendly fold-out for anyone who's never heard the words "death doula." Easy to share with family.</p>
-        <ul><li>What a doula is, and isn't</li><li>Questions people ask</li><li>Questions worth asking over dinner</li><li>Three small things to do this week</li></ul>
+        <ul><li>What a doula is, and isn't</li><li>Questions people ask</li><li>Questions worth sitting with</li><li>Three small first steps</li></ul>
         <div class="btn-row" style="margin-top:26px"><a class="btn" href="downloads/death-doula-guide.pdf" download>Download the guide</a></div>
       </div>
       <div class="art"><span class="t">Let's talk about the part <em>nobody talks about.</em></span></div>
@@ -424,10 +424,11 @@ P["workbook.html"] = ("Leaving Well workbook | Everything Is Already All Right",
 
 <section class="sec">
   <div class="wrap">
-    <div class="center"><p class="eyebrow">Take a peek</p><h2>Two sample <em>pages</em></h2></div>
+    <div class="center"><p class="eyebrow">Take a peek</p><h2>Three sample <em>pages</em></h2><p class="small">Tap any page to see it full size.</p></div>
     <div class="samples">
-      <figure class="reveal"><img src="img/workbook-sample-1.jpg" alt="Sample page titled First, a promise, explaining that this is not a form at the doctor's office"><figcaption>First, a promise</figcaption></figure>
-      <figure class="reveal"><img src="img/workbook-sample-2.jpg" alt="Sample page titled Setting the Room, with prompts for the soundtrack, light and atmosphere, touch and words"><figcaption>Setting the Room</figcaption></figure>
+      <figure class="reveal"><a href="img/workbook-sample-1.jpg" target="_blank" rel="noopener"><img src="img/workbook-sample-1.jpg" alt="Sample page titled First, a promise, explaining that this is not a form at the doctor's office"></a><figcaption>First, a promise</figcaption></figure>
+      <figure class="reveal"><a href="img/workbook-sample-3.jpg" target="_blank" rel="noopener"><img src="img/workbook-sample-3.jpg" alt="Sample page titled How I Want to Be Cared For, with choices about where to be at the end, comfort or clarity, and treatments to welcome or skip"></a><figcaption>How I Want to Be Cared For</figcaption></figure>
+      <figure class="reveal"><a href="img/workbook-sample-2.jpg" target="_blank" rel="noopener"><img src="img/workbook-sample-2.jpg" alt="Sample page titled Setting the Room, with prompts for the soundtrack, light and atmosphere, touch and words"></a><figcaption>Setting the Room</figcaption></figure>
     </div>
   </div>
 </section>

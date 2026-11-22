@@ -203,7 +203,7 @@ a:hover .arrow::after, .arrow:hover::after { transform: translateX(4px); }
 .inside i { font-family: var(--serif); color: var(--terra); }
 .inside b { font-family: var(--serif); font-size: 1.3rem; font-weight: 600; display: block; line-height: 1.2; }
 .inside span { font-size: .93rem; color: var(--muted); }
-.samples { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 50px; }
+.samples { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px; }
 .samples figure { margin: 0; }
 .samples img { border-radius: 6px; box-shadow: 0 34px 60px -30px rgba(30,34,48,.5); }
 .samples figcaption { font-size: .85rem; color: var(--muted); margin-top: 14px; font-style: italic; text-align: center; }
