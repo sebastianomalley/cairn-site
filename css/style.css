@@ -34,7 +34,9 @@ p { margin: 0 0 1.1em; }
 /* Header */
 .head { padding: 28px 0 22px; }
 .head .wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-.brand { text-decoration: none; font-family: var(--serif); font-size: 1.32rem; line-height: 1; }
+.brand { text-decoration: none; display: block; line-height: 0; }
+.brand img { height: 54px; width: auto; }
+.foot .brand img { height: 60px; }
 .brand small { display: block; font-family: var(--sans); font-size: .58rem; letter-spacing: .32em; text-transform: uppercase; color: var(--terra); margin-top: 8px; }
 .nav { display: flex; align-items: center; gap: 30px; }
 .nav a { text-decoration: none; font-size: .92rem; position: relative; }
@@ -295,7 +297,7 @@ a:hover .arrow::after, .arrow:hover::after { transform: translateX(4px); }
   .compare td::before { content: attr(data-l); display: block; font-family: var(--serif); font-size: 1.15rem; color: var(--ink); margin-bottom: 2px; }
   .next { grid-template-columns: 1fr; padding: 32px; }
   .foot .row { grid-template-columns: 1fr; }
-  .brand { font-size: 1.1rem; max-width: 64vw; } .brand small { font-size: .52rem; letter-spacing: .2em; }
+  .brand img { height: 44px; }
   .book { max-width: 320px; margin: 20px auto 0; }
 }
 @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
