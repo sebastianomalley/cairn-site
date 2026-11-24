@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Cairn Desk | Send a file</title>
+<link rel="icon" href="../img/cairn-mark-ink.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/desk.css">
+</head>
+<body>
+<header class="head">
+  <div class="wrap">
+    <a class="brand" href="../index.html" aria-label="Cairn home"><img src="../img/cairn-horizontal-ink.svg" alt="Cairn, end-of-life doula care" width="210" height="58"></a>
+    <span class="desk-tag">Private desk</span>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero small desk-hero">
+  <div class="orbs" aria-hidden="true"><span></span><span></span><span></span></div>
+  <div class="inner">
+    <p class="eyebrow">Cairn desk</p>
+    <h1>Send something <em>to a family.</em></h1>
+    <p class="lede">Pick a file, add their name if you like, then copy, text or email it.</p>
+  </div>
+</section>
+
+<section class="sec tone-mist">
+  <div class="wrap desk-grid">
+    <form id="deskForm" onsubmit="return false">
+      <fieldset class="pick">
+        <legend>Client forms</legend>
+        <div id="formsList" class="pick-grid"></div>
+      </fieldset>
+      <fieldset class="pick">
+        <legend>Workbook and guide</legend>
+        <div id="booksList" class="pick-grid"></div>
+      </fieldset>
+      <fieldset class="pick">
+        <legend>Pages</legend>
+        <div id="pagesList" class="pick-grid"></div>
+      </fieldset>
+    </form>
+
+    <aside class="send">
+      <div class="send-card">
+        <label class="field-l" for="who">Their first name (optional)</label>
+        <input id="who" autocomplete="off" placeholder="e.g. Maria">
+        <p class="out-label">Message</p>
+        <textarea id="msg" rows="5"></textarea>
+        <p class="out-label">Link</p>
+        <p class="out-link" id="outLink"></p>
+        <div class="send-btns">
+          <button type="button" class="btn" id="copyBtn">Copy link</button>
+          <button type="button" class="btn btn-line" id="copyMsgBtn">Copy message</button>
+          <a class="btn btn-line" id="textBtn" href="#">Text it</a>
+          <a class="btn btn-line" id="mailBtn" href="#">Email it</a>
+          <a class="btn btn-line" id="openBtn" href="#" target="_blank" rel="noopener">Preview</a>
+        </div>
+        <p class="small" id="warn" hidden>This is the full paid workbook. Send it only to clients who bought it or are working with you.</p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="sec tone-sand">
+  <div class="wrap">
+    <p class="eyebrow">Quick copy</p>
+    <h2>Every link <em>in one place</em></h2>
+    <ul class="quick" id="quickList"></ul>
+    <p class="small">Bookmark this page. On iPhone, tap Share, then Add to Home Screen. It isn't linked anywhere on the site and is hidden from search engines, but anyone with a file's link can open it.</p>
+  </div>
+</section>
+</main>
+<script src="../js/desk.js"></script>
+</body>
+</html>
