@@ -1,5 +1,6 @@
 # Builds every page from one shared header, journey rail and footer.
 # Run: python3 build.py
+import re
 
 # Paste your Stripe Payment Link here when it's ready. Until then the button says "Coming soon".
 STRIPE_LINK = ""
@@ -9,14 +10,12 @@ STEPS = [
     ("what-is-a-doula.html", "One", "Understand", "What a doula is"),
     ("ways-i-help.html", "Two", "Explore", "Ways I can help"),
     ("how-it-works.html", "Three", "Connect", "How it works"),
-    ("workbook.html", "Four", "At your pace", "The workbook"),
+    ("resources.html", "Four", "At your pace", "Free guide and workbook"),
 ]
 NAV = [("what-is-a-doula.html", "What is a doula"), ("ways-i-help.html", "Ways I help"),
-       ("how-it-works.html", "How it works"), ("workbook.html", "Workbook")]
+       ("how-it-works.html", "How it works"), ("resources.html", "Resources")]
 
-RINGS = '''<svg class="rings" viewBox="0 0 400 400" aria-hidden="true"><g fill="none" stroke="#F0C987" stroke-width=".7">
-<circle cx="200" cy="200" r="60"/><circle cx="200" cy="200" r="95" opacity=".8"/><circle cx="200" cy="200" r="130" opacity=".6"/>
-<circle cx="200" cy="200" r="165" opacity=".45"/><circle cx="200" cy="200" r="198" opacity=".3"/></g></svg>'''
+ORBS = '<div class="orbs" aria-hidden="true"><span></span><span></span><span></span></div>'
 
 
 def head(title, desc, current):
@@ -59,10 +58,9 @@ def journey(current=None):
     return f'<nav class="journey" aria-label="Your path through this site">{items}</nav>'
 
 
-def nxt(href, kicker, title):
-    return f'''<section class="sec" style="padding-top:20px">
-  <div class="wrap"><a class="next reveal" href="{href}"><div><div class="k">{kicker}</div><div class="t">{title}</div></div><span class="circle" aria-hidden="true">→</span></a></div>
-</section>'''
+def nxt(href, kicker, title, cls=""):
+    return (f'<a class="next-band {cls}" href="{href}"><span class="wrap"><span><span class="k">{kicker}</span>'
+            f'<span class="t">{title}</span></span><span class="circle" aria-hidden="true">→</span></span></a>')
 
 
 FOOT = '''
@@ -74,8 +72,8 @@ FOOT = '''
         <a class="brand" href="index.html" aria-label="Cairn home"><img src="img/cairn-horizontal-cream.svg" alt="Cairn, end-of-life doula care" width="210" height="58"></a>
         <p style="margin-top:20px;max-width:38ch"><em style="font-family:var(--serif);font-size:1.15rem;color:#F0C987">Everything is already all right.</em><br>Non-medical end-of-life support in Washington, DC, Northern Virginia, Florida and North Carolina, with virtual support anywhere. Every faith, culture and family welcome.</p>
       </div>
-      <div><h4>The path</h4><a href="what-is-a-doula.html">What is a doula</a><a href="ways-i-help.html">Ways I can help</a><a href="how-it-works.html">How it works</a><a href="workbook.html">The workbook</a></div>
-      <div><h4>Reach me</h4><a href="contact.html">Free consultation</a><a href="tel:+19177532905">(917) 753-2905</a><a href="resources.html">Resources</a><a href="https://jason-omalley.com">About me</a></div>
+      <div><h4>The path</h4><a href="what-is-a-doula.html">What is a doula</a><a href="ways-i-help.html">Ways I can help</a><a href="how-it-works.html">How it works</a><a href="resources.html">Resources</a><a href="workbook.html">The workbook</a></div>
+      <div><h4>Reach me</h4><a href="contact.html">Free consultation</a><a href="tel:+19177532905">(917) 753-2905</a><a href="downloads/what-is-a-death-doula-guide.pdf">Free guide</a><a href="https://jason-omalley.com">About me</a></div>
     </div>
     <div class="fine"><span>&copy; <span id="year">2026</span> Jason O'Malley</span><span>Doulas provide non-medical support. Nothing on this site is medical or legal advice.</span></div>
   </div>
@@ -91,7 +89,7 @@ P = {}
 P["index.html"] = ("Cairn | End-of-life doula care with Jason O'Malley",
 "Warm, non-medical end-of-life doula support for people of every faith, culture and family in DC, Northern Virginia, Florida and North Carolina.", f'''
 <section class="hero">
-  {RINGS}
+  {ORBS}
   <div class="inner">
     <p class="eyebrow">End-of-life doula care</p>
     <h1>Everything is already <em>all right.</em></h1>
@@ -115,19 +113,17 @@ P["index.html"] = ("Cairn | End-of-life doula care with Jason O'Malley",
   </div>
 </section>
 
-<section class="sec tone-blush">
-  <div class="wrap">
-    <div class="narrow center" style="margin-bottom:56px">
-      <p class="eyebrow">Where would you like to begin?</p>
-      <h2>Three gentle <em>ways in</em></h2>
-    </div>
-    <div class="grid-3">
-      <a class="path p1 reveal" href="what-is-a-doula.html"><span class="step-n">If you're curious</span><h3>Learn what a doula is</h3><p>What it looks like, how it's different from hospice, and why families bring one in.</p><span class="go arrow">Start reading </span></a>
-      <a class="path p2 reveal" href="contact.html"><span class="step-n">If you'd like to talk</span><h3>A free 20-minute call</h3><p>Say hello, ask anything and get to know each other. No pressure and no script.</p><span class="go arrow">Book a time </span></a>
-      <a class="path p3 reveal" href="workbook.html"><span class="step-n">If you'd rather go slow</span><h3>Start on your own</h3><p>The Leaving Well workbook lets you explore all of this privately, at your own pace.</p><span class="go arrow">See the workbook </span></a>
-    </div>
+<section class="sec tone-peach" style="padding-bottom:70px">
+  <div class="narrow center">
+    <p class="eyebrow">Where would you like to begin?</p>
+    <h2>Three gentle <em>ways in</em></h2>
   </div>
 </section>
+<div class="paths">
+  <a class="path p1" href="what-is-a-doula.html"><span class="step-n">If you're curious</span><h3>Learn what a doula is</h3><p>What it looks like, how it fits with hospice, and why families bring one in.</p><span class="go arrow">Start reading </span></a>
+  <a class="path p2" href="contact.html"><span class="step-n">If you'd like to talk</span><h3>A free 20-minute call</h3><p>Say hello, ask anything and get to know each other. No pressure and no script.</p><span class="go arrow">Book a time </span></a>
+  <a class="path p3" href="resources.html"><span class="step-n">If you'd rather go slow</span><h3>Start on your own</h3><p>A free guide to read, and the Leaving Well workbook to fill in privately, at your own pace.</p><span class="go arrow">See resources </span></a>
+</div>
 
 <section class="sec tone-dusk">
   <div class="wrap split">
@@ -140,7 +136,7 @@ P["index.html"] = ("Cairn | End-of-life doula care with Jason O'Malley",
   </div>
 </section>
 
-<section class="sec center">
+<section class="sec center tone-lav">
   <div class="wrap">
     <p class="quote">"I'm not here to fix anything. I'm here to show up, and to make sure you don't have to do this alone."</p>
     <p class="quote-by">Jason O'Malley</p>
@@ -153,7 +149,7 @@ P["index.html"] = ("Cairn | End-of-life doula care with Jason O'Malley",
 P["what-is-a-doula.html"] = ("What is a death doula? | Cairn End-of-Life Doula Care",
 "What an end-of-life doula is, what it looks like, how it differs from hospice and why families bring one in.", f'''
 <section class="hero small">
-  {RINGS}
+  {ORBS}
   <div class="inner">
     <p class="eyebrow">Step one · Understand</p>
     <h1>What exactly is a <em>death doula?</em></h1>
@@ -225,7 +221,7 @@ P["what-is-a-doula.html"] = ("What is a death doula? | Cairn End-of-Life Doula C
   </div>
 </section>
 
-<section class="sec tone-blush">
+<section class="sec tone-peach">
   <div class="wrap split">
     <div class="side"><div class="stick"><p class="eyebrow">Why a doula</p><h2>Why families <em>bring one in</em></h2></div></div>
     <div class="main rows reveal">
@@ -258,7 +254,7 @@ P["what-is-a-doula.html"] = ("What is a death doula? | Cairn End-of-Life Doula C
 P["ways-i-help.html"] = ("Ways I can help | Cairn End-of-Life Doula Care",
 "End-of-life doula support you design yourself, from planning conversations to vigil support and legacy films.", f'''
 <section class="hero small">
-  {RINGS}
+  {ORBS}
   <div class="inner">
     <p class="eyebrow">Step two · Explore</p>
     <h1>Take what helps. <em>Leave the rest.</em></h1>
@@ -314,7 +310,7 @@ P["ways-i-help.html"] = ("Ways I can help | Cairn End-of-Life Doula Care",
 P["how-it-works.html"] = ("How it works | Cairn End-of-Life Doula Care",
 "How to get started with an end-of-life doula, what happens on the free call, how hiring works and how your privacy is protected.", f'''
 <section class="hero small">
-  {RINGS}
+  {ORBS}
   <div class="inner">
     <p class="eyebrow">Step three · Connect</p>
     <h1>Let's take it <em>one step at a time.</em></h1>
@@ -336,7 +332,7 @@ P["how-it-works.html"] = ("How it works | Cairn End-of-Life Doula Care",
   </div>
 </section>
 
-<section class="sec tone-blush">
+<section class="sec tone-peach">
   <div class="wrap split">
     <div class="side"><div class="stick"><p class="eyebrow">The free call</p><h2>Twenty minutes, <em>no pressure</em></h2></div></div>
     <div class="main rows reveal">
@@ -359,7 +355,7 @@ P["how-it-works.html"] = ("How it works | Cairn End-of-Life Doula Care",
         <ul><li>What a doula is, and isn't</li><li>Questions people ask</li><li>Doula and hospice, side by side</li><li>Questions worth sitting with, no answers required</li></ul>
         <div class="btn-row" style="margin-top:26px"><a class="btn" href="downloads/what-is-a-death-doula-guide.pdf" download>Download the guide</a></div>
       </div>
-      <div class="art"><span class="t">What exactly is a <em>death doula?</em></span></div>
+      <img class="book" src="img/guide-cover.jpg" alt="Cover of the free guide, What exactly is a death doula?" style="max-width:300px;justify-self:center;transform:rotate(2deg)">
     </div>
   </div>
 </section>
@@ -389,12 +385,10 @@ P["how-it-works.html"] = ("How it works | Cairn End-of-Life Doula Care",
   </div>
 </section>
 
-<section class="sec" style="padding-top:20px">
-  <div class="wrap grid-2">
-    <a class="next reveal" href="contact.html"><div><div class="k">Ready to talk?</div><div class="t">Book a free <em>20-minute call</em></div></div><span class="circle" aria-hidden="true">→</span></a>
-    <a class="next reveal" href="workbook.html" style="background: radial-gradient(ellipse 70% 90% at 100% 100%, rgba(232,212,166,.9), transparent 65%), linear-gradient(120deg, #3F5E50, #6E8576);"><div><div class="k">Not quite ready?</div><div class="t">Start at <em>your own pace</em></div></div><span class="circle" aria-hidden="true">→</span></a>
-  </div>
-</section>
+<div class="next-split">
+{nxt("contact.html", "Ready to talk?", "Book a free <em>20-minute call</em>")}
+{nxt("resources.html", "Not quite ready?", "Start at <em>your own pace</em>", "sage")}
+</div>
 ''')
 
 # ---------------------------------------------------------------- STEP 4
@@ -402,16 +396,18 @@ buy = (f'<a class="btn" href="{STRIPE_LINK}">Buy the workbook</a>' if STRIPE_LIN
        else '<a class="btn" href="contact.html?interest=workbook">Coming soon · Join the list</a>')
 P["workbook.html"] = ("Leaving Well workbook | Cairn End-of-Life Doula Care",
 "Leaving Well, a guided end-of-life planning and legacy workbook you can start on your own, at your own pace.", f'''
-{journey("workbook.html")}
-<section class="sec tight-top">
+{journey("resources.html")}
+<section class="sec tight-top tone-mist">
   <div class="wrap wb-hero">
     <div class="reveal">
-      <p class="eyebrow">Step four · At your own pace</p>
+      <p class="small" style="margin-bottom:18px"><a href="resources.html" style="text-decoration:none">← All resources</a></p>
+      <p class="eyebrow">The workbook</p>
       <h1 style="font-size:clamp(3rem,6.6vw,5.6rem)">Leaving <em>Well</em></h1>
       <p class="lede">Not ready for a call? That's completely okay. Start here, privately, whenever you're ready.</p>
       <p>Leaving Well is a guided workbook that walks you through many of the same questions I explore with the people I support. It's warm, a little fun, and nothing like a form at the doctor's office. For some people it's all they need. For others it's a comfortable first step.</p>
-      <div class="price-box"><span class="price">{WORKBOOK_PRICE}</span><span class="small">Fillable, printable PDF · 16 pages</span></div>
+      <div class="price-box"><span class="price">{WORKBOOK_PRICE}</span><span class="small">Instant download · 16 pages</span></div>
       <div class="btn-row" style="margin-top:18px">{buy}</div>
+      <p class="small" style="margin-top:16px">Type right into it on your computer, tablet or phone the moment it downloads, save as you go, or print it if you prefer pen and paper.</p>
     </div>
     <img class="book reveal" src="img/workbook-cover.jpg" alt="The Leaving Well workbook cover, a dusk gradient from deep midnight into warm apricot">
   </div>
@@ -444,7 +440,7 @@ P["workbook.html"] = ("Leaving Well workbook | Cairn End-of-Life Doula Care",
   </div>
 </section>
 
-<section class="sec tone-blush">
+<section class="sec tone-peach">
   <div class="wrap split">
     <div class="side"><div class="stick"><p class="eyebrow">Good to know</p><h2>If you'd like <em>more support later</em></h2></div></div>
     <div class="main reveal">
@@ -512,10 +508,44 @@ P["contact.html"] = ("Free consultation | Cairn End-of-Life Doula Care",
 
 # ---------------------------------------------------------------- RESOURCES
 P["resources.html"] = ("Resources | Cairn End-of-Life Doula Care",
-"Advance directive resources for DC, Virginia, Florida and North Carolina.", '''
-<section class="sec tight-top">
+"A free guide to death doulas, the Leaving Well workbook, and advance directive resources for DC, Virginia, Florida and North Carolina.", f'''
+<section class="hero small">
+  {ORBS}
+  <div class="inner">
+    <p class="eyebrow">Step four · At your own pace</p>
+    <h1>Read, reflect, <em>at your own pace.</em></h1>
+    <p class="lede">Not ready for a call? That's completely okay. Start with something to read, or something to fill in.</p>
+  </div>
+</section>
+{journey("resources.html")}
+
+<section class="sec tone-peach">
+  <div class="wrap feature">
+    <img class="book reveal" src="img/guide-cover.jpg" alt="Cover of the free guide, What exactly is a death doula?">
+    <div class="reveal">
+      <p class="eyebrow">Free download</p>
+      <h2>What exactly is a <em>death doula?</em></h2>
+      <p>A short, friendly read for anyone who's never heard the words. What a doula does, how it fits with hospice, the questions people ask, and a few gentle ones to sit with. Easy to share with family.</p>
+      <div class="btn-row"><a class="btn" href="downloads/what-is-a-death-doula-guide.pdf" download>Download the free guide</a></div>
+    </div>
+  </div>
+</section>
+
+<a class="wb-teaser" href="workbook.html">
+  <span class="wrap feature flip">
+    <span class="copy">
+      <span class="eyebrow">The workbook · {WORKBOOK_PRICE}</span>
+      <span class="h">Leaving <em>Well</em></span>
+      <span class="p">A guided, fillable workbook that walks you through the same questions I explore with the people I support. What matters most, how you want to be cared for, setting the room, the stories you want told. Warm, a little fun, and nothing like a form at the doctor's office.</span>
+      <span class="btn">Take a look inside</span>
+    </span>
+    <img class="book" src="img/workbook-cover.jpg" alt="Cover of the Leaving Well workbook">
+  </span>
+</a>
+
+<section class="sec tone-sand">
   <div class="wrap split">
-    <div class="side"><div class="stick"><p class="eyebrow">Resources</p><h1 style="font-size:clamp(2.8rem,5.4vw,4.4rem)">Make it <em>official</em></h1><p class="small">An advance directive lets you name who speaks for you and write down your medical wishes. Every state has its own version, so always check the official source.</p></div></div>
+    <div class="side"><div class="stick"><p class="eyebrow">Official forms</p><h2>Make it <em>official</em></h2><p class="small">An advance directive lets you name who speaks for you and write down your medical wishes. Every state has its own version, so always check the official source.</p></div></div>
     <div class="main res-list">
       <div><b>CaringInfo</b><p>Free advance directive forms for every state. Helpline 800-658-8898.</p><a href="https://www.caringinfo.org/planning/advance-directives/by-state/">https://www.caringinfo.org/planning/advance-directives/by-state/</a></div>
       <div><b>The Conversation Project</b><p>Free guides for talking with family about what matters.</p><a href="https://theconversationproject.org">https://theconversationproject.org</a></div>
@@ -527,9 +557,26 @@ P["resources.html"] = ("Resources | Cairn End-of-Life Doula Care",
     </div>
   </div>
 </section>
+{nxt("contact.html", "Whenever you're ready", "Say hello on a <em>free call</em>")}
 ''')
+
+TONES = ["tone-mist", "tone-peach", "tone-sage", "tone-lav", "tone-sand"]
+def tone_sections(body):
+    out, prev, i = [], None, 0
+    for m in re.finditer(r'<section class="sec([^"]*)"', body):
+        cls = m.group(1)
+        found = re.search(r"tone-\w+", cls)
+        if found:
+            prev = found.group(0); continue
+        pick = next(t for t in TONES[i:] + TONES[:i] if t != prev)
+        i = (TONES.index(pick) + 1) % len(TONES)
+        out.append((m.start(), m.end(), f'<section class="sec{cls} {pick}"'))
+        prev = pick
+    for a, b, rep in reversed(out):
+        body = body[:a] + rep + body[b:]
+    return body
 
 for fname, (title, desc, body) in P.items():
     with open(fname, "w") as f:
-        f.write(head(title, desc, fname) + body + FOOT)
+        f.write(head(title, desc, fname) + tone_sections(body) + FOOT)
 print("built", len(P))
