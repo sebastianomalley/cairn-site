@@ -577,7 +577,7 @@ P["about.html"] = ("About Jason | Cairn End-of-Life Doula Care",
     <div class="reveal">
       <p class="eyebrow">My story</p>
       <h2>Death has always been <em>in my space.</em></h2>
-      <p>When I was a very young boy, I climbed into my grandfather's casket to be with him one more time. I didn't know it then, but I was already learning how to be near death without being afraid of it.</p>
+      <p>When I was a very young boy, I climbed into my grandfather's casket to lay with him. I didn't know it then, but I was already learning how to be near death without being afraid of it.</p>
       <p>When I was 29, I lost my brother unexpectedly. He was 25. Since then I've walked alongside my father and my godmother through the end of their lives, and now my uncle as he makes his own transition.</p>
       <p>Somewhere along the way I noticed that death always seemed to find its way into my life. Instead of turning away, I started to lean in. Each time, I showed up a little more present and a little more capable.</p>
     </div>
