@@ -44,3 +44,14 @@
   .cairn .nav { background: #23261F; }
   .c-hero-stones { width: 70vw; right: -10vw; }
 }
+
+.c-themes { font-family: var(--serif); font-size: clamp(1.5rem, 2.8vw, 2.1rem); line-height: 1.35; margin-top: 60px; color: #EFE8DA; max-width: 30ch; }
+.c-themes em { color: #D9CBB4; }
+.c-slate .step + .step { border-color: rgba(239,232,218,.2); }
+.c-slate .step::before { color: #D9CBB4; }
+.c-slate .step p { color: #D8D0C0; }
+.c-about { display: grid; grid-template-columns: .7fr 1.3fr; gap: clamp(40px, 7vw, 100px); align-items: center; }
+.c-photo { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 4px; filter: saturate(.85); box-shadow: 0 40px 70px -34px rgba(35,38,31,.55); }
+.c-sign { font-family: var(--serif); font-style: italic; font-size: 1.3rem; color: #5E6B4C; margin-top: 20px; }
+.c-foot .row { grid-template-columns: 1.4fr 1fr; }
+@media (max-width: 960px) { .c-about { grid-template-columns: 1fr; } .c-photo { max-width: 320px; } }
