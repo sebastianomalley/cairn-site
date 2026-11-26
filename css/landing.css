@@ -1,0 +1,38 @@
+/* Everything Is Already All Right: umbrella landing */
+.landing { background: #1C1B22; }
+.land-hero { position: relative; min-height: 92vh; display: grid; place-items: center; overflow: hidden; isolation: isolate; color: var(--cream);
+  background: radial-gradient(ellipse 70% 50% at 50% 115%, rgba(233,162,122,.55), transparent 70%), linear-gradient(180deg, #1C1B22 0%, #2A2230 55%, #3A2B38 100%); }
+.land-hero::before { content: ""; position: absolute; inset: 0; background-image: var(--grain); z-index: -1; }
+.land-hero .orbs span:nth-child(1) { background: #E9A27A; opacity: .35; }
+.land-hero .orbs span:nth-child(2) { background: #8C9A78; opacity: .35; }
+.land-inner { text-align: center; padding: 80px 24px; }
+.land-logo { width: min(440px, 78vw); margin: 0 auto; }
+.land-lede { font-family: var(--serif); font-size: clamp(1.25rem, 2.2vw, 1.6rem); line-height: 1.45; color: #E7DCCF; max-width: 34ch; margin: 34px auto 0; }
+.land-down { display: inline-grid; place-items: center; width: 54px; height: 54px; margin-top: 44px; border-radius: 50%; border: 1px solid rgba(247,241,232,.4); color: var(--cream); text-decoration: none; font-size: 1.2rem; animation: bob 3s ease-in-out infinite; }
+@keyframes bob { 50% { transform: translateY(6px); } }
+
+.doors { display: grid; grid-template-columns: 1fr 1fr; }
+.door-panel { position: relative; display: flex; align-items: flex-end; min-height: 78vh; text-decoration: none; overflow: hidden; isolation: isolate; color: var(--cream); }
+.door-panel::before { content: ""; position: absolute; inset: 0; background-image: var(--grain); z-index: -1; }
+.door-panel::after { content: ""; position: absolute; inset: 0; z-index: -2; transition: transform 1.2s ease; }
+.door-panel:hover::after { transform: scale(1.06); }
+.door-panel.doula::after { background: radial-gradient(ellipse 80% 60% at 70% 105%, #F0C987, transparent 65%), radial-gradient(ellipse 60% 60% at 10% 90%, rgba(217,140,140,.9), transparent 70%), linear-gradient(180deg, #2A2233 0%, #4A2F45 55%, #8E5A5E 100%); }
+.door-panel.cairn::after { background: radial-gradient(ellipse 80% 55% at 30% 108%, rgba(217,203,180,.75), transparent 65%), radial-gradient(ellipse 50% 50% at 95% 85%, rgba(142,154,120,.7), transparent 70%), linear-gradient(180deg, #23261F 0%, #343A2E 55%, #5E6B4C 100%); }
+.door-inner { display: flex; flex-direction: column; align-items: flex-start; padding: clamp(40px, 6vw, 80px); max-width: 560px; }
+.door-mark { width: 56px; height: 56px; margin-bottom: 30px; opacity: .95; }
+.door-kicker { font-size: .7rem; letter-spacing: .26em; text-transform: uppercase; font-weight: 600; color: var(--gold); margin-bottom: 14px; }
+.cairn .door-kicker { color: #D9CBB4; }
+.door-title { font-family: var(--serif); font-size: clamp(2.8rem, 5.4vw, 4.6rem); line-height: 1; }
+.door-title em { font-style: italic; color: var(--gold); }
+.door-title.cz { font-family: "Cinzel", var(--serif); letter-spacing: .14em; }
+.door-text { margin-top: 18px; color: #E7DCCF; max-width: 40ch; }
+.door-go { margin-top: 30px; display: inline-flex; gap: 10px; align-items: center; padding: 13px 26px; border-radius: 99px; border: 1px solid rgba(247,241,232,.55); font-weight: 500; font-size: .92rem; transition: background .3s; }
+.door-panel:hover .door-go { background: rgba(247,241,232,.14); }
+
+.land-why { padding: clamp(90px, 11vw, 140px) 0; background: linear-gradient(180deg, #F6EEE4, #EFE6D8); }
+.land-why .small a { color: var(--terra); }
+.land-foot { background: #1C1B22; color: #A89C92; font-size: .82rem; padding: 26px 0; }
+.land-foot .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+.land-foot a { color: #E6DCD0; text-decoration: none; }
+@media (max-width: 860px) { .doors { grid-template-columns: 1fr; } .door-panel { min-height: 70vh; } }
+@media (prefers-reduced-motion: reduce) { .land-down { animation: none; } .door-panel::after { transition: none; } }

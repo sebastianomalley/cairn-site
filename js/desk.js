@@ -4,21 +4,21 @@
   var F = 'desk/files/';
 
   var ITEMS = [
-    { g: 'formsList', id: 'intake', name: 'Client intake', note: 'After the free call', url: F + 'cairn-client-intake.pdf', subj: 'Getting to know you',
+    { g: 'formsList', id: 'intake', name: 'Client intake', note: 'After the free call', url: F + 'doula-client-intake.pdf', subj: 'Getting to know you',
       msg: "Here's a short intake form so I can get to know you and your family before we meet. Fill in whatever feels right, and skip anything that doesn't. We can finish it together." },
-    { g: 'formsList', id: 'agreement', name: 'Services agreement', note: 'Before work begins', url: F + 'cairn-services-agreement.pdf', subj: 'Our agreement',
+    { g: 'formsList', id: 'agreement', name: 'Services agreement', note: 'Before work begins', url: F + 'doula-services-agreement.pdf', subj: 'Our agreement',
       msg: "Here's our services agreement. Take your time reading it, and let me know if you have any questions before signing." },
-    { g: 'formsList', id: 'care', name: 'Care and support plan', note: 'First few visits', url: F + 'cairn-care-plan.pdf', subj: 'Your care and support plan',
+    { g: 'formsList', id: 'care', name: 'Care and support plan', note: 'First few visits', url: F + 'doula-care-plan.pdf', subj: 'Your care and support plan',
       msg: "Here's the care and support plan we talked about, so everyone is on the same page. We'll update it together as things change." },
-    { g: 'formsList', id: 'vigil', name: 'Vigil plan', note: 'For the final days', url: F + 'cairn-vigil-plan.pdf', subj: 'Vigil plan',
+    { g: 'formsList', id: 'vigil', name: 'Vigil plan', note: 'For the final days', url: F + 'doula-vigil-plan.pdf', subj: 'Vigil plan',
       msg: "Here's the vigil plan, so everyone keeping watch knows how they'd like these days to feel and who to call. Feel free to share it with family." },
-    { g: 'formsList', id: 'consent', name: 'Legacy and film consent', note: 'Before any recording', url: F + 'cairn-legacy-consent.pdf', subj: 'Legacy project consent',
+    { g: 'formsList', id: 'consent', name: 'Legacy and film consent', note: 'Before any recording', url: F + 'doula-legacy-consent.pdf', subj: 'Legacy project consent',
       msg: "Here's the consent form for the legacy project. Nothing is recorded or shared without it, and you can change your mind at any time." },
-    { g: 'formsList', id: 'after', name: 'After a death checklist', note: 'For the family', url: F + 'cairn-after-a-death.pdf', subj: 'A checklist for the days ahead',
+    { g: 'formsList', id: 'after', name: 'After a death checklist', note: 'For the family', url: F + 'doula-after-a-death.pdf', subj: 'A checklist for the days ahead',
       msg: "I'm so sorry. There's no rush with any of this. When you're ready, here's a gentle checklist for the days and weeks ahead. I'm here if you need anything." },
-    { g: 'formsList', id: 'near', name: 'Near the end handout', note: 'For families', url: F + 'cairn-near-the-end.pdf', subj: 'What you might notice near the end',
+    { g: 'formsList', id: 'near', name: 'Near the end handout', note: 'For families', url: F + 'doula-near-the-end.pdf', subj: 'What you might notice near the end',
       msg: "Here's a short handout on what you might notice in the final days. I hope it makes things a little less frightening. Call me or the hospice nurse anytime." },
-    { g: 'formsList', id: 'notes', name: 'Visit notes', note: 'Your records only', url: F + 'cairn-visit-notes.pdf', subj: 'Visit notes', mine: true,
+    { g: 'formsList', id: 'notes', name: 'Visit notes', note: 'Your records only', url: F + 'doula-visit-notes.pdf', subj: 'Visit notes', mine: true,
       msg: 'Visit notes form.' },
     { g: 'booksList', id: 'workbook', name: 'Leaving Well workbook', note: 'Full paid file', url: F + 'leaving-well-workbook-k7q2.pdf', subj: 'Your Leaving Well workbook', paid: true,
       msg: "Here's your copy of the Leaving Well workbook. You can type right into it on your computer, tablet or phone, save as you go, or print it. Take it one page at a time." },
@@ -26,7 +26,7 @@
       msg: "Here's a short, friendly guide to what a death doula is and how I can help. No pressure, just something to read when you have a moment." },
     { g: 'booksList', id: 'wbpage', name: 'Workbook page', note: 'Preview and buy', url: 'workbook.html', subj: 'The Leaving Well workbook',
       msg: "Here's the Leaving Well workbook if you'd like to start at your own pace. You can see a few sample pages there." },
-    { g: 'pagesList', id: 'home', name: 'Homepage', note: 'Start here', url: '', subj: 'Cairn End-of-Life Doula Care',
+    { g: 'pagesList', id: 'home', name: 'Doula homepage', note: 'Start here', url: 'doula.html', subj: 'End-of-life doula care',
       msg: "Here's my website, if you'd like to learn more about what I do." },
     { g: 'pagesList', id: 'what', name: 'What is a doula', note: 'Step one', url: 'what-is-a-doula.html', subj: 'What is a death doula?',
       msg: "Here's a page that explains what a death doula is and how it fits with hospice." },
@@ -40,7 +40,7 @@
 
   function full(u) { return BASE + u; }
   function greet() { var n = who.value.trim(); return n ? 'Hi ' + n + ',\n\n' : 'Hi,\n\n'; }
-  function compose() { return greet() + current.msg + '\n\n' + link + '\n\nJason O\'Malley\nCairn End-of-Life Doula Care\n(917) 753-2905'; }
+  function compose() { return greet() + current.msg + '\n\n' + link + '\n\nJason O\'Malley\nEverything Is Already All Right\n(917) 753-2905'; }
 
   function update() {
     link = full(current.url);

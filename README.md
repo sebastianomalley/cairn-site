@@ -1,4 +1,4 @@
-# Cairn
+# Everything Is Already All Right
 
-End-of-life doula care site for Jason O'Malley. Tagline: Everything is already all right. Preview build, not indexed.
-The earlier Cairn mockup is saved on the `cairn-mockup-backup` branch.
+Umbrella site: landing page, end-of-life doula care (doula.html and its pages), and Cairn, a gathering of men (cairn/). Preview build, not indexed.
+Build the doula pages with python3 build.py. The landing page and cairn/ are hand-written.

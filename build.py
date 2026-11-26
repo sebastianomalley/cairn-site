@@ -28,7 +28,7 @@ def head(title, desc, current):
 <meta name="robots" content="noindex, nofollow">
 <title>{title}</title>
 <meta name="description" content="{desc}">
-<link rel="icon" href="img/cairn-mark-ink.svg" type="image/svg+xml">
+<link rel="icon" href="img/eiaar-mark.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -39,7 +39,7 @@ def head(title, desc, current):
 <div class="mock-bar">Preview build. Not public yet.</div>
 <header class="head">
   <div class="wrap">
-    <a class="brand" href="index.html" aria-label="Cairn end-of-life doula care, home"><img src="img/cairn-horizontal-ink.svg" alt="Cairn, end-of-life doula care" width="210" height="58"></a>
+    <a class="brand" href="doula.html" aria-label="Everything Is Already All Right, end-of-life doula care, home"><img src="img/eiaar-doula-horizontal-ink.svg" alt="Everything Is Already All Right, end-of-life doula care" width="240" height="64"></a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="nav" id="site-nav" aria-label="Main">
       {links}
@@ -69,13 +69,13 @@ FOOT = '''
   <div class="wrap">
     <div class="row">
       <div>
-        <a class="brand" href="index.html" aria-label="Cairn home"><img src="img/cairn-horizontal-cream.svg" alt="Cairn, end-of-life doula care" width="210" height="58"></a>
-        <p style="margin-top:20px;max-width:38ch"><em style="font-family:var(--serif);font-size:1.15rem;color:#F0C987">Everything is already all right.</em><br>Non-medical end-of-life support in Washington, DC, Northern Virginia, Florida and North Carolina, with virtual support anywhere. Every faith, culture and family welcome.</p>
+        <a class="brand" href="doula.html" aria-label="End-of-life doula care home"><img src="img/eiaar-doula-horizontal-cream.svg" alt="Everything Is Already All Right, end-of-life doula care" width="240" height="64"></a>
+        <p style="margin-top:20px;max-width:38ch">Non-medical end-of-life support in Washington, DC, Northern Virginia, Florida and North Carolina, with virtual support anywhere. Every faith, culture and family welcome.</p>
       </div>
       <div><h4>The path</h4><a href="what-is-a-doula.html">What is a doula</a><a href="ways-i-help.html">Ways I can help</a><a href="how-it-works.html">How it works</a><a href="resources.html">Resources</a><a href="workbook.html">The workbook</a></div>
       <div><h4>Reach me</h4><a href="contact.html">Free consultation</a><a href="tel:+19177532905">(917) 753-2905</a><a href="downloads/what-is-a-death-doula-guide.pdf">Free guide</a><a href="about.html">About Jason</a></div>
     </div>
-    <div class="fine"><span>&copy; <span id="year">2026</span> Jason O'Malley</span><span>Doulas provide non-medical support. Nothing on this site is medical or legal advice.</span></div>
+    <div class="fine"><span>&copy; <span id="year">2026</span> Everything Is Already All Right · <a href="index.html" style="display:inline;color:inherit">Home</a> · <a href="cairn/" style="display:inline;color:inherit">Cairn, a gathering of men</a></span><span>Doulas provide non-medical support. Nothing on this site is medical or legal advice.</span></div>
   </div>
 </footer>
 <script src="js/main.js"></script>
@@ -86,13 +86,13 @@ FOOT = '''
 P = {}
 
 # ---------------------------------------------------------------- HOME
-P["index.html"] = ("Cairn | End-of-life doula care with Jason O'Malley",
+P["doula.html"] = ("End-of-Life Doula Care | Everything Is Already All Right",
 "Warm, non-medical end-of-life doula support for people of every faith, culture and family in DC, Northern Virginia, Florida and North Carolina.", f'''
 <section class="hero">
   {ORBS}
   <div class="inner">
     <p class="eyebrow">End-of-life doula care</p>
-    <h1>Everything is already <em>all right.</em></h1>
+    <h1>You don't have to do this <em>alone.</em></h1>
     <p class="lede">Warm, steady company for the end of a life, and for the people who love them. Whatever you believe, wherever you come from, you're welcome here.</p>
     <div class="btn-row">
       <a class="btn btn-gold" href="what-is-a-doula.html">Start here</a>
@@ -146,7 +146,7 @@ P["index.html"] = ("Cairn | End-of-life doula care with Jason O'Malley",
 ''')
 
 # ---------------------------------------------------------------- STEP 1
-P["what-is-a-doula.html"] = ("What is a death doula? | Cairn End-of-Life Doula Care",
+P["what-is-a-doula.html"] = ("What is a death doula? | Everything Is Already All Right",
 "What an end-of-life doula is, what it looks like, how it differs from hospice and why families bring one in.", f'''
 <section class="hero small">
   {ORBS}
@@ -251,7 +251,7 @@ P["what-is-a-doula.html"] = ("What is a death doula? | Cairn End-of-Life Doula C
 ''')
 
 # ---------------------------------------------------------------- STEP 2
-P["ways-i-help.html"] = ("Ways I can help | Cairn End-of-Life Doula Care",
+P["ways-i-help.html"] = ("Ways I can help | Everything Is Already All Right",
 "End-of-life doula support you design yourself, from planning conversations to vigil support and legacy films.", f'''
 <section class="hero small">
   {ORBS}
@@ -307,7 +307,7 @@ P["ways-i-help.html"] = ("Ways I can help | Cairn End-of-Life Doula Care",
 ''')
 
 # ---------------------------------------------------------------- STEP 3
-P["how-it-works.html"] = ("How it works | Cairn End-of-Life Doula Care",
+P["how-it-works.html"] = ("How it works | Everything Is Already All Right",
 "How to get started with an end-of-life doula, what happens on the free call, how hiring works and how your privacy is protected.", f'''
 <section class="hero small">
   {ORBS}
@@ -394,7 +394,7 @@ P["how-it-works.html"] = ("How it works | Cairn End-of-Life Doula Care",
 # ---------------------------------------------------------------- STEP 4
 buy = (f'<a class="btn" href="{STRIPE_LINK}">Buy the workbook</a>' if STRIPE_LINK
        else '<a class="btn" href="contact.html?interest=workbook">Get the workbook</a>')
-P["workbook.html"] = ("Leaving Well workbook | Cairn End-of-Life Doula Care",
+P["workbook.html"] = ("Leaving Well workbook | Everything Is Already All Right",
 "Leaving Well, a guided end-of-life planning and legacy workbook you can start on your own, at your own pace.", f'''
 {journey("resources.html")}
 <section class="sec tight-top tone-mist">
@@ -454,7 +454,7 @@ P["workbook.html"] = ("Leaving Well workbook | Cairn End-of-Life Doula Care",
 ''')
 
 # ---------------------------------------------------------------- CONTACT
-P["contact.html"] = ("Free consultation | Cairn End-of-Life Doula Care",
+P["contact.html"] = ("Free consultation | Everything Is Already All Right",
 "Book a free 20-minute consultation with Jason O'Malley, end-of-life doula.", '''
 <section class="sec tight-top">
   <div class="wrap contact-grid">
@@ -476,7 +476,7 @@ P["contact.html"] = ("Free consultation | Cairn End-of-Life Doula Care",
     <form class="form" id="contactForm">
       <input type="hidden" name="access_key" value="19f84a20-0e99-46cd-95c0-8a7e95db971e">
       <input type="hidden" name="subject" value="New doula inquiry from the website">
-      <input type="hidden" name="from_name" value="Cairn website">
+      <input type="hidden" name="from_name" value="Everything Is Already All Right website">
       <input type="checkbox" name="botcheck" style="display:none">
       <div class="field"><label for="name">Your name</label><input id="name" name="name" required autocomplete="name"></div>
       <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" required autocomplete="email"></div>
@@ -507,7 +507,7 @@ P["contact.html"] = ("Free consultation | Cairn End-of-Life Doula Care",
 ''')
 
 # ---------------------------------------------------------------- RESOURCES
-P["resources.html"] = ("Resources | Cairn End-of-Life Doula Care",
+P["resources.html"] = ("Resources | Everything Is Already All Right",
 "A free guide to death doulas, the Leaving Well workbook, and advance directive resources for DC, Virginia, Florida and North Carolina.", f'''
 <section class="hero small">
   {ORBS}
@@ -560,7 +560,7 @@ P["resources.html"] = ("Resources | Cairn End-of-Life Doula Care",
 {nxt("contact.html", "Whenever you're ready", "Say hello on a <em>free call</em>")}
 ''')
 
-P["about.html"] = ("About Jason | Cairn End-of-Life Doula Care",
+P["about.html"] = ("About Jason | Everything Is Already All Right",
 "Jason O'Malley, certified end-of-life doula, on why he does this work.", f'''
 <section class="hero small">
   {ORBS}
