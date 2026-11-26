@@ -339,3 +339,12 @@ a:hover .arrow::after, .arrow:hover::after { transform: translateX(4px); }
   .book { max-width: 320px; margin: 20px auto 0; }
 }
 @media (prefers-reduced-motion: reduce) { .orbs span { animation: none; } .reveal { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
+
+/* About */
+.about-intro { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(40px, 7vw, 100px); align-items: center; }
+.about-photo { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 4px; box-shadow: 0 40px 70px -34px rgba(30,34,48,.55); }
+.dogs { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 4vw, 50px); margin-top: 50px; }
+.dogs figure { margin: 0; background: #FBF7F1; padding: 12px 12px 14px; box-shadow: 0 24px 40px -24px rgba(30,34,48,.45); transform: rotate(var(--tilt)); }
+.dogs img { width: 100%; aspect-ratio: 4/5; object-fit: cover; }
+.dogs figcaption { font-family: var(--serif); font-style: italic; font-size: 1.25rem; text-align: center; margin-top: 10px; }
+@media (max-width: 960px) { .about-intro, .dogs { grid-template-columns: 1fr; } .dogs figure { max-width: 300px; margin: 0 auto; } .about-photo { max-width: 360px; } }

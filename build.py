@@ -13,7 +13,7 @@ STEPS = [
     ("resources.html", "Four", "At your pace", "Free guide and workbook"),
 ]
 NAV = [("what-is-a-doula.html", "What is a doula"), ("ways-i-help.html", "Ways I help"),
-       ("how-it-works.html", "How it works"), ("resources.html", "Resources")]
+       ("how-it-works.html", "How it works"), ("resources.html", "Resources"), ("about.html", "About")]
 
 ORBS = '<div class="orbs" aria-hidden="true"><span></span><span></span><span></span></div>'
 
@@ -73,7 +73,7 @@ FOOT = '''
         <p style="margin-top:20px;max-width:38ch"><em style="font-family:var(--serif);font-size:1.15rem;color:#F0C987">Everything is already all right.</em><br>Non-medical end-of-life support in Washington, DC, Northern Virginia, Florida and North Carolina, with virtual support anywhere. Every faith, culture and family welcome.</p>
       </div>
       <div><h4>The path</h4><a href="what-is-a-doula.html">What is a doula</a><a href="ways-i-help.html">Ways I can help</a><a href="how-it-works.html">How it works</a><a href="resources.html">Resources</a><a href="workbook.html">The workbook</a></div>
-      <div><h4>Reach me</h4><a href="contact.html">Free consultation</a><a href="tel:+19177532905">(917) 753-2905</a><a href="downloads/what-is-a-death-doula-guide.pdf">Free guide</a><a href="https://jason-omalley.com">About me</a></div>
+      <div><h4>Reach me</h4><a href="contact.html">Free consultation</a><a href="tel:+19177532905">(917) 753-2905</a><a href="downloads/what-is-a-death-doula-guide.pdf">Free guide</a><a href="about.html">About Jason</a></div>
     </div>
     <div class="fine"><span>&copy; <span id="year">2026</span> Jason O'Malley</span><span>Doulas provide non-medical support. Nothing on this site is medical or legal advice.</span></div>
   </div>
@@ -393,7 +393,7 @@ P["how-it-works.html"] = ("How it works | Cairn End-of-Life Doula Care",
 
 # ---------------------------------------------------------------- STEP 4
 buy = (f'<a class="btn" href="{STRIPE_LINK}">Buy the workbook</a>' if STRIPE_LINK
-       else '<a class="btn" href="contact.html?interest=workbook">Coming soon · Join the list</a>')
+       else '<a class="btn" href="contact.html?interest=workbook">Get the workbook</a>')
 P["workbook.html"] = ("Leaving Well workbook | Cairn End-of-Life Doula Care",
 "Leaving Well, a guided end-of-life planning and legacy workbook you can start on your own, at your own pace.", f'''
 {journey("resources.html")}
@@ -558,6 +558,75 @@ P["resources.html"] = ("Resources | Cairn End-of-Life Doula Care",
   </div>
 </section>
 {nxt("contact.html", "Whenever you're ready", "Say hello on a <em>free call</em>")}
+''')
+
+P["about.html"] = ("About Jason | Cairn End-of-Life Doula Care",
+"Jason O'Malley, certified end-of-life doula, on why he does this work.", f'''
+<section class="hero small">
+  {ORBS}
+  <div class="inner">
+    <p class="eyebrow">About</p>
+    <h1>Hi, I'm <em>Jason.</em></h1>
+    <p class="lede">Certified end-of-life doula, and the person who'll be sitting with you.</p>
+  </div>
+</section>
+
+<section class="sec tone-mist">
+  <div class="wrap about-intro">
+    <img class="about-photo reveal" src="img/jason.jpg" alt="Jason O'Malley, smiling, with a grey beard">
+    <div class="reveal">
+      <p class="eyebrow">My story</p>
+      <h2>Death has always been <em>in my space.</em></h2>
+      <p>When I was a very young boy, I climbed into my grandfather's casket to be with him one more time. I didn't know it then, but I was already learning how to be near death without being afraid of it.</p>
+      <p>When I was 29, I lost my brother unexpectedly. He was 25. Since then I've walked alongside my father and my godmother through the end of their lives, and now my uncle as he makes his own transition.</p>
+      <p>Somewhere along the way I noticed that death always seemed to find its way into my life. Instead of turning away, I started to lean in. Each time, I showed up a little more present and a little more capable.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec tone-peach">
+  <div class="wrap split">
+    <div class="side"><div class="stick"><p class="eyebrow">Why this work</p><h2>An honor and <em>a privilege</em></h2></div></div>
+    <div class="main reveal">
+      <p>When I learned that end-of-life doulas were a real thing, and that you could train to do this work, I signed up. I completed the University of Vermont's End-of-Life Doula program, and its Companion Animal End-of-Life Doula program too.</p>
+      <p>It's an honor and a privilege to walk alongside someone in this space. I've seen firsthand the difference it makes to feel seen, heard and valued, not just to the last breath but beyond. That's what I bring with me.</p>
+      <p>I want to be in this space, and I want to do the best job in this role that I possibly can.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec tone-dusk center">
+  <div class="wrap">
+    <p class="quote" style="color:var(--cream)">"It's not a job. It's just <em style="color:var(--gold)">who I am.</em>"</p>
+    <p class="lede" style="max-width:46ch;margin:26px auto 0">I can be whatever a person needs in this space and time, even if that's just someone to sit in it with them.</p>
+  </div>
+</section>
+
+<section class="sec tone-lav">
+  <div class="wrap">
+    <div class="center"><p class="eyebrow">The crew at home</p><h2>Peanut, Buster <em>and Juju</em></h2></div>
+    <div class="dogs">
+      <figure class="reveal" style="--tilt:-3deg"><img src="img/peanut.jpg" alt="Peanut, a tan Shih Tzu, lying on a stone patio with his tongue out"><figcaption>Peanut</figcaption></figure>
+      <figure class="reveal" style="--tilt:2deg"><img src="img/buster.jpg" alt="Buster, a grey and white Shih Tzu, looking back over his shoulder with his tongue out"><figcaption>Buster</figcaption></figure>
+      <figure class="reveal" style="--tilt:-1.5deg"><img src="img/juju.jpg" alt="Juju, a black and white pup in a red plaid harness, standing behind a pink tennis ball"><figcaption>Juju</figcaption></figure>
+    </div>
+    <p class="center small" style="margin-top:30px">My Shih Tzus, plus Juju, on loan from my girlfriend. They're a big part of why I trained in companion animal care too.</p>
+  </div>
+</section>
+
+<section class="sec tone-sand">
+  <div class="wrap split">
+    <div class="side"><div class="stick"><p class="eyebrow">Training and membership</p><h2>The <em>details</em></h2></div></div>
+    <div class="main res-list">
+      <div><b>Certified End-of-Life Doula</b><p>University of Vermont, 2025</p></div>
+      <div><b>Companion Animal End-of-Life Doula</b><p>University of Vermont, 2026</p></div>
+      <div><b>Member, National End-of-Life Doula Alliance (NEDA)</b><p>A national community of end-of-life doulas</p></div>
+      <div><b>Background</b><p>Years in film, live events and teaching, which is where the legacy films come from</p></div>
+      <p class="small" style="margin-top:20px">Insured as an end-of-life doula. Doulas provide non-medical support.</p>
+    </div>
+  </div>
+</section>
+{nxt("contact.html", "Whenever you're ready", "Let's say hello on a <em>free call</em>")}
 ''')
 
 TONES = ["tone-mist", "tone-peach", "tone-sage", "tone-lav", "tone-sand"]
