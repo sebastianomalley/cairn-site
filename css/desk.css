@@ -1,4 +1,4 @@
-/* Cairn private desk */
+/* Private desk */
 .desk-tag { font-size: .7rem; letter-spacing: .26em; text-transform: uppercase; font-weight: 600; color: var(--terra); }
 .desk-hero .inner { padding-block: clamp(60px, 8vw, 100px); }
 .desk-grid { display: grid; grid-template-columns: 1.25fr 1fr; gap: clamp(30px, 5vw, 70px); align-items: start; }

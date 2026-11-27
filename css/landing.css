@@ -17,14 +17,13 @@
 .door-panel::after { content: ""; position: absolute; inset: 0; z-index: -2; transition: transform 1.2s ease; }
 .door-panel:hover::after { transform: scale(1.06); }
 .door-panel.doula::after { background: radial-gradient(ellipse 80% 60% at 70% 105%, #F0C987, transparent 65%), radial-gradient(ellipse 60% 60% at 10% 90%, rgba(217,140,140,.9), transparent 70%), linear-gradient(180deg, #2A2233 0%, #4A2F45 55%, #8E5A5E 100%); }
-.door-panel.cairn::after { background: radial-gradient(ellipse 80% 55% at 30% 108%, rgba(217,203,180,.75), transparent 65%), radial-gradient(ellipse 50% 50% at 95% 85%, rgba(142,154,120,.7), transparent 70%), linear-gradient(180deg, #23261F 0%, #343A2E 55%, #5E6B4C 100%); }
+.door-panel.animal::after { background: radial-gradient(ellipse 80% 55% at 30% 108%, rgba(217,203,180,.75), transparent 65%), radial-gradient(ellipse 50% 50% at 95% 85%, rgba(142,154,120,.7), transparent 70%), linear-gradient(180deg, #23261F 0%, #343A2E 55%, #5E6B4C 100%); }
 .door-inner { display: flex; flex-direction: column; align-items: flex-start; padding: clamp(40px, 6vw, 80px); max-width: 560px; }
 .door-mark { width: 56px; height: 56px; margin-bottom: 30px; opacity: .95; }
 .door-kicker { font-size: .7rem; letter-spacing: .26em; text-transform: uppercase; font-weight: 600; color: var(--gold); margin-bottom: 14px; }
-.cairn .door-kicker { color: #D9CBB4; }
+.animal .door-kicker { color: #D9CBB4; }
 .door-title { font-family: var(--serif); font-size: clamp(2.8rem, 5.4vw, 4.6rem); line-height: 1; }
 .door-title em { font-style: italic; color: var(--gold); }
-.door-title.cz { font-family: "Cinzel", var(--serif); letter-spacing: .14em; }
 .door-text { margin-top: 18px; color: #E7DCCF; max-width: 40ch; }
 .door-go { margin-top: 30px; display: inline-flex; gap: 10px; align-items: center; padding: 13px 26px; border-radius: 99px; border: 1px solid rgba(247,241,232,.55); font-weight: 500; font-size: .92rem; transition: background .3s; }
 .door-panel:hover .door-go { background: rgba(247,241,232,.14); }
