@@ -23,8 +23,15 @@ if (vid && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   vid.pause();
 }
 
+// Lists arrive one line at a time
+document.querySelectorAll('.fit-list, .menu, .shelf ul, .res-list, .steps, .rows').forEach(list => {
+  list.classList.add('stagger');
+  list.classList.remove('reveal');
+  [...list.children].forEach((c, i) => c.style.setProperty('--i', Math.min(i, 10)));
+});
+
 // Gentle reveal on scroll
-const els = document.querySelectorAll('.reveal');
+const els = document.querySelectorAll('.reveal, .stagger');
 if ('IntersectionObserver' in window) {
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
@@ -64,4 +71,24 @@ if (new URLSearchParams(location.search).get('interest') === 'workbook') {
 if (new URLSearchParams(location.search).get('for') === 'animal') {
   const a = document.getElementById('for-animal');
   if (a) a.checked = true;
+}
+
+// Depth: background glows drift a little slower than the page
+if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const orbs = document.querySelectorAll('.hero .orbs');
+  const bands = document.querySelectorAll('.tone-dusk, .next-band');
+  let ticking = false;
+  const update = () => {
+    const vh = window.innerHeight;
+    orbs.forEach(o => { o.style.setProperty('--par', (window.scrollY * 0.25).toFixed(1) + 'px'); });
+    bands.forEach(b => {
+      const r = b.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > vh) return;
+      const p = (vh - r.top) / (vh + r.height);
+      b.style.setProperty('--bgy', (20 + p * 60).toFixed(1) + '%');
+    });
+    ticking = false;
+  };
+  window.addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+  update();
 }

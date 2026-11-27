@@ -117,6 +117,7 @@ def head(title, desc, current):
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script>try{{if(sessionStorage.getItem("eiaarLogo"))document.documentElement.classList.add("logo-seen");sessionStorage.setItem("eiaarLogo","1")}}catch(e){{}}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
 <title>{title}</title>
@@ -132,7 +133,7 @@ def head(title, desc, current):
 <div class="mock-bar">Preview build. Not public yet.</div>
 <header class="head">
   <div class="wrap">
-    <a class="brand" href="doula.html" aria-label="Everything Is Already All Right, end-of-life doula care, home"><img src="img/eiaar-doula-horizontal-ink.svg" alt="Everything Is Already All Right, end-of-life doula care" width="240" height="64"></a>
+    <a class="brand" href="doula.html" aria-label="Everything Is Already All Right, end-of-life doula care, home"><span class="logo-draw" style="--cx:13.3%;--cy:48.4%"><img class="ring" src="img/eiaar-doula-horizontal-ink-ring.svg" alt="Everything Is Already All Right, end-of-life doula care" width="240" height="64"><img class="words" src="img/eiaar-doula-horizontal-ink-words.svg" alt="" aria-hidden="true"></span></a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="nav" id="site-nav" aria-label="Main">
       {links}
