@@ -339,6 +339,10 @@ a:hover .arrow::after, .arrow:hover::after { transform: translateX(4px); }
   .compare td { border-left: 0 !important; padding-top: 8px; }
   .compare td::before { content: attr(data-l); display: block; font-family: var(--serif); font-size: 1.15rem; color: var(--ink); margin-bottom: 2px; }
   .foot .row { grid-template-columns: 1fr; }
+  .foot .row { text-align: center; gap: 30px; }
+  .foot .brand { display: inline-block; }
+  .foot .row p { margin-left: auto !important; margin-right: auto; }
+  .foot .fine { flex-direction: column; align-items: center; text-align: center; gap: 8px; }
   .brand img { height: 44px; }
   .book { max-width: 320px; margin: 20px auto 0; }
 }

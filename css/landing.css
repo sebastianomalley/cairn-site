@@ -33,5 +33,6 @@
 .land-foot { background: #1C1B22; color: #A89C92; font-size: .82rem; padding: 26px 0; }
 .land-foot .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
 .land-foot a { color: #E6DCD0; text-decoration: none; }
+@media (max-width: 860px) { .land-foot .wrap { flex-direction: column; align-items: center; text-align: center; gap: 8px; } }
 @media (max-width: 860px) { .doors { grid-template-columns: 1fr; } .door-panel { min-height: 70vh; } }
 @media (prefers-reduced-motion: reduce) { .land-down { animation: none; } .door-panel::after { transition: none; } }
