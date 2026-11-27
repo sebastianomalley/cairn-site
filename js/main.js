@@ -59,3 +59,9 @@ if (new URLSearchParams(location.search).get('interest') === 'workbook') {
   const w = document.getElementById('int-workbook');
   if (w) w.checked = true;
 }
+
+// Pre-select "An animal companion" when coming from the companion animals page
+if (new URLSearchParams(location.search).get('for') === 'animal') {
+  const a = document.getElementById('for-animal');
+  if (a) a.checked = true;
+}

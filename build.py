@@ -42,6 +42,11 @@ ISBNS = {
     "Lifetimes": "9780553344028",
     "Goodbye, Friend": "9781608680863",
     "Smoke Gets in Your Eyes": "9780393351903",
+    "Going Home": "9780345502704",
+    "The Loss of a Pet": "9781630260798",
+    "Dog Heaven": "9780590417013",
+    "Cat Heaven": "9780590100540",
+    "The Tenth Good Thing About Barney": "9780689712036",
 }
 
 # Bookshop doesn't stock these, so their Bookshop button falls back to a search.
@@ -91,6 +96,7 @@ def book(title, author, why):
 
 import hashlib as _h
 CSS_V = _h.md5(open("css/style.css","rb").read()).hexdigest()[:8]
+JS_V = _h.md5(open("js/main.js","rb").read()).hexdigest()[:8]
 
 STEPS = [
     ("what-is-a-doula.html", "One", "Understand", "What a doula is"),
@@ -99,7 +105,8 @@ STEPS = [
     ("resources.html", "Four", "At your pace", "Free guide and workbook"),
 ]
 NAV = [("what-is-a-doula.html", "What is a doula"), ("ways-i-help.html", "Ways I help"),
-       ("how-it-works.html", "How it works"), ("resources.html", "Resources"), ("about.html", "About")]
+       ("how-it-works.html", "How it works"), ("resources.html", "Resources"),
+       ("companion-animals.html", "Companion animals"), ("about.html", "About")]
 
 ORBS = '<div class="orbs" aria-hidden="true"><span></span><span></span><span></span></div>'
 
@@ -149,7 +156,7 @@ def nxt(href, kicker, title, cls=""):
             f'<span class="t">{title}</span></span><span class="circle" aria-hidden="true">→</span></span></a>')
 
 
-FOOT = '''
+FOOT = f'''
 </main>
 <footer class="foot">
   <div class="wrap">
@@ -158,13 +165,13 @@ FOOT = '''
         <a class="brand" href="doula.html" aria-label="End-of-life doula care home"><img src="img/eiaar-doula-horizontal-cream.svg" alt="Everything Is Already All Right, end-of-life doula care" width="240" height="64"></a>
         <p style="margin-top:20px;max-width:38ch">Non-medical end-of-life support in Washington, DC, Northern Virginia, Florida and North Carolina, with virtual support anywhere. Every faith, culture and family welcome.</p>
       </div>
-      <div><h4>The path</h4><a href="what-is-a-doula.html">What is a doula</a><a href="ways-i-help.html">Ways I can help</a><a href="how-it-works.html">How it works</a><a href="resources.html">Resources</a><a href="workbook.html">The workbook</a></div>
+      <div><h4>The path</h4><a href="what-is-a-doula.html">What is a doula</a><a href="ways-i-help.html">Ways I can help</a><a href="how-it-works.html">How it works</a><a href="resources.html">Resources</a><a href="workbook.html">The workbook</a><a href="companion-animals.html">Companion animals</a></div>
       <div><h4>Reach me</h4><a href="contact.html">Free consultation</a><a href="tel:+19177532905">(917) 753-2905</a><a href="downloads/what-is-a-death-doula-guide.pdf">Free guide</a><a href="about.html">About Jason</a></div>
     </div>
     <div class="fine"><span>&copy; <span id="year">2026</span> <a href="index.html" style="display:inline;color:inherit">Everything Is Already All Right</a></span><span>Doulas provide non-medical support. Nothing on this site is medical or legal advice.</span></div>
   </div>
 </footer>
-<script src="js/main.js"></script>
+<script src="js/main.js?v={JS_V}"></script>
 </body>
 </html>
 '''
@@ -197,7 +204,7 @@ P["doula.html"] = ("End-of-Life Doula Care | Everything Is Already All Right",
       <li>You're not sure what to expect at the end and want someone steady beside you</li>
       <li>Your family has its own faith, culture or traditions you want honored</li>
       <li>You've lost someone and don't know where to start</li>
-      <li class="fit-aside">Saying goodbye to an animal companion? I'm trained in that too. <a href="ways-i-help.html#animals">Here's how I help</a></li>
+      <li class="fit-aside">Saying goodbye to an animal companion? I'm trained in that too. <a href="companion-animals.html">Here's how I help</a></li>
     </ul>
   </div>
 </section>
@@ -330,7 +337,7 @@ P["what-is-a-doula.html"] = ("What is a death doula? | Everything Is Already All
       <details><summary>Do I need to be religious?</summary><p>Not at all. I support people of every faith and of no faith. Your beliefs and traditions lead, and I follow.</p></details>
       <details><summary>Isn't it all really sad?</summary><p>There are tears, sure. There's also a surprising amount of laughter, good stories and the occasional debate about the playlist.</p></details>
       <details><summary>Is it covered by insurance?</summary><p>Not yet. Doula care is paid privately today, though many doulas are advocating for that to change. We'll talk openly about cost on our first call.</p></details>
-      <details><summary>Do you help with pets?</summary><p>Yes. I'm also certified to help families say goodbye to a beloved companion animal.</p></details>
+      <details><summary>Do you help with pets?</summary><p>Yes. I'm also trained in companion animal end-of-life care. <a href="companion-animals.html">Here's how that works</a>.</p></details>
     </div>
   </div>
 </section>
@@ -376,16 +383,6 @@ P["ways-i-help.html"] = ("Ways I can help | Everything Is Already All Right",
         <div><span class="when">Part of vigil and legacy support</span><h3 style="font-size:2.2rem">Legacy films</h3></div>
         <div><p>Before this work I spent years behind a camera. A legacy film is a short, personal portrait of a life told in your own voice, for the people who'll want to hear it again. We talk first, film somewhere that feels right, and nothing is shared without your okay.</p></div>
       </div>
-    </div>
-  </div>
-</section>
-
-<section class="sec tone-sage" id="animals">
-  <div class="wrap split">
-    <div class="side"><div class="stick"><p class="eyebrow">Companion animals</p><h2>For the animals <em>we love, too</em></h2></div></div>
-    <div class="main reveal">
-      <p class="lede">Most of my work is with people and the families around them. I'm also trained in companion animal end-of-life care.</p>
-      <p>Losing a pet is real grief. I can help you plan a peaceful goodbye, be there at home or at the vet, and sit with you and your family afterward. Just mention it when we talk.</p>
     </div>
   </div>
 </section>
@@ -581,7 +578,7 @@ P["contact.html"] = ("Free consultation | Everything Is Already All Right",
         <div class="chips">
           <label><input type="radio" name="for" value="Me"><span>Me</span></label>
           <label><input type="radio" name="for" value="Someone I love"><span>Someone I love</span></label>
-          <label><input type="radio" name="for" value="A pet"><span>A pet</span></label>
+          <label><input type="radio" name="for" value="An animal companion" id="for-animal"><span>An animal companion</span></label>
           <label><input type="radio" name="for" value="I work in care"><span>I work in care</span></label>
         </div>
       </div>
@@ -645,7 +642,6 @@ P["resources.html"] = ("Resources | Everything Is Already All Right",
     <h2>Books I <em>trust</em></h2>
     <p style="max-width:56ch">Some go-to reads for families, caregivers and anyone curious. Take what helps.</p>
     <div class="shelves"><div class="shelf"><h3>For anyone facing the end, and the people beside them</h3><ul>{book("Final Gifts", "Maggie Callanan and Patricia Kelley", "Two hospice nurses on understanding what the dying may be trying to tell us.")}{book("Being Mortal", "Atul Gawande", "A surgeon on what matters most at the end of life, and how medicine can honor it.")}{book("A Beginner's Guide to the End", "BJ Miller and Shoshana Berger", "Warm, practical and surprisingly funny. The paperwork, the care, the feelings.")}{book("The Art of Dying Well", "Katy Butler", "A clear guide to planning for a good end, stage by stage.")}{book("Gone from My Sight", "Barbara Karnes", "The small booklet many hospices hand families about the final weeks.")}{book("Smoke Gets in Your Eyes", "Caitlin Doughty", "A funny, honest look at death from a funeral director.")}</ul></div><div class="shelf-col"><div class="shelf"><h3>For grief</h3><ul>{book("It's OK That You're Not OK", "Megan Devine", "Grief without the pressure to get over it.")}{book("The Wild Edge of Sorrow", "Francis Weller", "On grief as something we carry together.")}</ul></div><div class="shelf"><h3>For children</h3><ul>{book("The Invisible String", "Patrice Karst", "A gentle picture book about staying connected to the people we love.")}{book("Lifetimes", "Bryan Mellonie and Robert Ingpen", "A simple way to talk with kids about beginnings and endings.")}</ul></div></div></div>
-    <div class="shelves shelves-animals"><div class="shelf"><h3>For companion animals</h3><p class="shelf-note">For anyone saying goodbye to an animal they love.</p><ul>{book("Goodbye, Friend", "Gary Kowalski", "For anyone who has loved and lost an animal.")}</ul></div></div>
     <p class="small" style="margin-top:26px">{affiliate_note()}</p>
   </div>
 </section>
@@ -665,6 +661,76 @@ P["resources.html"] = ("Resources | Everything Is Already All Right",
   </div>
 </section>
 {nxt("contact.html", "Whenever you're ready", "Say hello on a <em>free call</em>")}
+''')
+
+P["companion-animals.html"] = ("Companion animal end-of-life care | Everything Is Already All Right",
+"Gentle, non-medical end-of-life doula support for families saying goodbye to a beloved animal companion, at home or at the vet.", f'''
+<section class="hero small">
+  {ORBS}
+  <div class="inner">
+    <p class="eyebrow">Companion animal care</p>
+    <h1>For the animals <em>we love.</em></h1>
+    <p class="lede">They're family. Saying goodbye to them deserves the same care, time and gentleness as any other goodbye.</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap split">
+    <div class="side"><div class="stick"><p class="eyebrow">Why it matters</p><h2>Real love, <em>real grief</em></h2></div></div>
+    <div class="main reveal">
+      <p class="lede">Losing an animal can hit as hard as losing a person. Sometimes harder, because the world doesn't always make room for it.</p>
+      <p>I trained in companion animal end-of-life care because I know that bond. My own dogs are a big part of my life. I'm here to help you make the hard decisions with less fear, plan a goodbye that feels right, and not feel alone in the grief that follows.</p>
+      <p class="small">I don't provide veterinary care. I work alongside your vet, never in place of them.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec tone-peach">
+  <div class="wrap">
+    <p class="eyebrow">How I can help</p>
+    <h2 style="margin-bottom:46px">Before, during <em>and after</em></h2>
+    <div class="menu reveal">
+      <div class="item"><span class="when">Before</span><h3>Thinking it through</h3><p>Unhurried time to talk about quality of life, what your vet has shared, and what you're seeing at home, so you can decide when you're ready.</p></div>
+      <div class="item"><span class="when">Before</span><h3>Planning the goodbye</h3><p>At home or at the clinic, who'll be there, a favorite blanket, a last walk, a special meal. The small things that make it theirs.</p></div>
+      <div class="item"><span class="when">During</span><h3>Being there</h3><p>Steady company for you and your family through the final hours, whether it's a planned euthanasia or a natural passing at home.</p></div>
+      <div class="item"><span class="when">During</span><h3>Helping the kids</h3><p>Gentle, honest ways to talk with children about what's happening, and ways for them to say goodbye too.</p></div>
+      <div class="item"><span class="when">After</span><h3>Aftercare and remembering</h3><p>Talking through burial or cremation, paw prints, keepsakes and small rituals to honor them.</p></div>
+      <div class="item"><span class="when">After</span><h3>Grief support</h3><p>Checking in during the weeks after, and making room for a grief that's often brushed aside.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tone-sage">
+  <div class="wrap split">
+    <div class="side"><div class="stick"><p class="eyebrow">Getting started</p><h2>It starts with <em>a free call</em></h2></div></div>
+    <div class="main reveal">
+      <p class="lede">Twenty minutes to tell me about your animal, what's going on, and what you're hoping for.</p>
+      <p>From there we decide together what support looks like. Sometimes it's one visit. Sometimes it's a few weeks of walking alongside you. You get a simple written agreement with the cost up front.</p>
+      <p><a class="btn" href="contact.html?for=animal">Book a free call</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="sec tone-lav" id="reading">
+  <div class="wrap">
+    <p class="eyebrow">Recommended reading</p>
+    <h2>Books for <em>the goodbye</em></h2>
+    <p style="max-width:56ch">Go-to reads for anyone saying goodbye to an animal they love, and for the kids who loved them too.</p>
+    <div class="shelves"><div class="shelf"><h3>For you</h3><ul>{book("Goodbye, Friend", "Gary Kowalski", "Gentle wisdom for anyone who has loved and lost an animal.")}{book("Going Home", "Jon Katz", "On making the hard decisions and finding peace when pets die.")}{book("The Loss of a Pet", "Wallace Sife", "A classic, practical guide through pet grief, from a pioneer in the field.")}</ul></div><div class="shelf"><h3>For children</h3><ul>{book("Dog Heaven", "Cynthia Rylant", "A warm, simple picture book for kids who've lost a dog.")}{book("Cat Heaven", "Cynthia Rylant", "Its companion, for kids who've lost a cat.")}{book("The Tenth Good Thing About Barney", "Judith Viorst", "A boy remembers his cat, and begins to understand.")}</ul></div></div>
+    <p class="small" style="margin-top:26px">{affiliate_note()}</p>
+  </div>
+</section>
+
+<section class="sec tone-sand">
+  <div class="wrap split">
+    <div class="side"><div class="stick"><p class="eyebrow">Free support</p><h2>Someone <em>to talk to</em></h2><p class="small">Free pet loss lines run by veterinary schools. Hours change by season, so check before you call.</p></div></div>
+    <div class="main res-list">
+      <div><b>Cornell Pet Loss Support Hotline</b><p>Staffed by veterinary students trained by grief counselors.</p><a href="https://www.vet.cornell.edu/about-us/outreach/pet-loss-support-hotline/">https://www.vet.cornell.edu/about-us/outreach/pet-loss-support-hotline/</a></div>
+      <div><b>Tufts Pet Loss Support Helpline</b><p>A caring voice on the phone, plus reading on coping and on talking with kids.</p><a href="https://vet.tufts.edu/petloss">https://vet.tufts.edu/petloss</a></div>
+    </div>
+  </div>
+</section>
+{nxt("contact.html?for=animal", "Whenever you're ready", "Say hello on a <em>free call</em>")}
 ''')
 
 P["about.html"] = ("About Jason | Everything Is Already All Right",
