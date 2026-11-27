@@ -292,6 +292,7 @@ a:hover .arrow::after, .arrow:hover::after { transform: translateX(4px); }
 .res-list div:first-child { padding-top: 0; }
 .res-list b { font-family: var(--serif); font-size: 1.3rem; font-weight: 600; display: block; }
 .res-list a { color: var(--sage); font-size: .88rem; word-break: break-all; }
+.res-list .privacy { padding: 4px 0 4px 22px; border-bottom: 0; margin-top: 30px; }
 .res-list p { margin: 0; color: var(--muted); }
 
 /* Footer */
