@@ -379,3 +379,9 @@ a:hover .arrow::after, .arrow:hover::after { transform: translateX(4px); }
 @media (max-width: 960px) { .fit-list { columns: 1; } .shelves { grid-template-columns: 1fr; } }
 
 .side-note { margin-top: 18px; font-size: .95rem; color: var(--muted); max-width: 30ch; }
+.fit-list li.fit-aside { border-bottom: 0; margin-top: 18px; padding-left: 0; font-family: var(--serif); font-style: italic; font-size: 1.1rem; color: var(--muted); }
+.fit-list li.fit-aside::before, .fit-list li.fit-aside::after { display: none; }
+.fit-list li.fit-aside { column-span: all; }
+.fit-list li.fit-aside a { color: var(--terra); }
+.shelves-animals { margin-top: 30px; padding-top: 10px; border-top: 1px solid var(--rule); }
+.shelf-note { margin: 0 0 6px; font-size: .95rem; color: var(--muted); }

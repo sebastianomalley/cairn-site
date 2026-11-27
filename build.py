@@ -196,8 +196,8 @@ P["doula.html"] = ("End-of-Life Doula Care | Everything Is Already All Right",
       <li>You want your wishes written down while there's no rush</li>
       <li>You're not sure what to expect at the end and want someone steady beside you</li>
       <li>Your family has its own faith, culture or traditions you want honored</li>
-      <li>A beloved pet is nearing the end</li>
       <li>You've lost someone and don't know where to start</li>
+      <li class="fit-aside">Saying goodbye to an animal companion? I'm trained in that too. <a href="ways-i-help.html#animals">Here's how I help</a></li>
     </ul>
   </div>
 </section>
@@ -372,11 +372,20 @@ P["ways-i-help.html"] = ("Ways I can help | Everything Is Already All Right",
       <div class="item"><span class="when">During</span><h3>Respite for caregivers</h3><p>Someone trusted to stay close so the people caring for you can rest.</p></div>
       <div class="item"><span class="when">After</span><h3>The first hours and beyond</h3><p>Being there after a death, helping with next steps, and checking in through early grief.</p></div>
       <div class="item"><span class="when">Anytime</span><h3>Legacy projects</h3><p>Letters, recorded stories, memory books and other ways to leave something of yourself behind.</p></div>
-      <div class="item"><span class="when">Anytime</span><h3>Companion animals</h3><p>Gentle support for families saying goodbye to a beloved pet.</p></div>
       <div class="item feature">
         <div><span class="when">Part of vigil and legacy support</span><h3 style="font-size:2.2rem">Legacy films</h3></div>
         <div><p>Before this work I spent years behind a camera. A legacy film is a short, personal portrait of a life told in your own voice, for the people who'll want to hear it again. We talk first, film somewhere that feels right, and nothing is shared without your okay.</p></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tone-sage" id="animals">
+  <div class="wrap split">
+    <div class="side"><div class="stick"><p class="eyebrow">Companion animals</p><h2>For the animals <em>we love, too</em></h2></div></div>
+    <div class="main reveal">
+      <p class="lede">Most of my work is with people and the families around them. I'm also trained in companion animal end-of-life care.</p>
+      <p>Losing a pet is real grief. I can help you plan a peaceful goodbye, be there at home or at the vet, and sit with you and your family afterward. Just mention it when we talk.</p>
     </div>
   </div>
 </section>
@@ -635,7 +644,8 @@ P["resources.html"] = ("Resources | Everything Is Already All Right",
     <p class="eyebrow">Recommended reading</p>
     <h2>Books I <em>trust</em></h2>
     <p style="max-width:56ch">Some go-to reads for families, caregivers and anyone curious. Take what helps.</p>
-    <div class="shelves"><div class="shelf"><h3>For anyone facing the end, and the people beside them</h3><ul>{book("Final Gifts", "Maggie Callanan and Patricia Kelley", "Two hospice nurses on understanding what the dying may be trying to tell us.")}{book("Being Mortal", "Atul Gawande", "A surgeon on what matters most at the end of life, and how medicine can honor it.")}{book("A Beginner's Guide to the End", "BJ Miller and Shoshana Berger", "Warm, practical and surprisingly funny. The paperwork, the care, the feelings.")}{book("The Art of Dying Well", "Katy Butler", "A clear guide to planning for a good end, stage by stage.")}{book("Gone from My Sight", "Barbara Karnes", "The small booklet many hospices hand families about the final weeks.")}</ul></div><div class="shelf"><h3>For grief</h3><ul>{book("It's OK That You're Not OK", "Megan Devine", "Grief without the pressure to get over it.")}{book("The Wild Edge of Sorrow", "Francis Weller", "On grief as something we carry together.")}</ul></div><div class="shelf"><h3>For children</h3><ul>{book("The Invisible String", "Patrice Karst", "A gentle picture book about staying connected to the people we love.")}{book("Lifetimes", "Bryan Mellonie and Robert Ingpen", "A simple way to talk with kids about beginnings and endings.")}</ul></div><div class="shelf"><h3>For pets, and for a lighter touch</h3><ul>{book("Goodbye, Friend", "Gary Kowalski", "For anyone who has loved and lost an animal.")}{book("Smoke Gets in Your Eyes", "Caitlin Doughty", "A funny, honest look at death from a funeral director.")}</ul></div></div>
+    <div class="shelves"><div class="shelf"><h3>For anyone facing the end, and the people beside them</h3><ul>{book("Final Gifts", "Maggie Callanan and Patricia Kelley", "Two hospice nurses on understanding what the dying may be trying to tell us.")}{book("Being Mortal", "Atul Gawande", "A surgeon on what matters most at the end of life, and how medicine can honor it.")}{book("A Beginner's Guide to the End", "BJ Miller and Shoshana Berger", "Warm, practical and surprisingly funny. The paperwork, the care, the feelings.")}{book("The Art of Dying Well", "Katy Butler", "A clear guide to planning for a good end, stage by stage.")}{book("Gone from My Sight", "Barbara Karnes", "The small booklet many hospices hand families about the final weeks.")}{book("Smoke Gets in Your Eyes", "Caitlin Doughty", "A funny, honest look at death from a funeral director.")}</ul></div><div class="shelf-col"><div class="shelf"><h3>For grief</h3><ul>{book("It's OK That You're Not OK", "Megan Devine", "Grief without the pressure to get over it.")}{book("The Wild Edge of Sorrow", "Francis Weller", "On grief as something we carry together.")}</ul></div><div class="shelf"><h3>For children</h3><ul>{book("The Invisible String", "Patrice Karst", "A gentle picture book about staying connected to the people we love.")}{book("Lifetimes", "Bryan Mellonie and Robert Ingpen", "A simple way to talk with kids about beginnings and endings.")}</ul></div></div></div>
+    <div class="shelves shelves-animals"><div class="shelf"><h3>For companion animals</h3><p class="shelf-note">For anyone saying goodbye to an animal they love.</p><ul>{book("Goodbye, Friend", "Gary Kowalski", "For anyone who has loved and lost an animal.")}</ul></div></div>
     <p class="small" style="margin-top:26px">{affiliate_note()}</p>
   </div>
 </section>
@@ -647,9 +657,9 @@ P["resources.html"] = ("Resources | Everything Is Already All Right",
       <div><b>CaringInfo</b><p>Free advance directive forms for every state. Helpline 800-658-8898.</p><a href="https://www.caringinfo.org/planning/advance-directives/by-state/">https://www.caringinfo.org/planning/advance-directives/by-state/</a></div>
       <div><b>The Conversation Project</b><p>Free guides for talking with family about what matters.</p><a href="https://theconversationproject.org">https://theconversationproject.org</a></div>
       <div><b>DC MOST form</b><p>Medical orders for people who are seriously ill in DC. Ask your doctor.</p><a href="https://dchealth.dc.gov/most">https://dchealth.dc.gov/most</a></div>
-      <div><b>Virginia Advance Directive Registry</b><p>Store yours so providers can find it.</p><a href="https://www.connectvirginia.org/adr/">https://www.connectvirginia.org/adr/</a></div>
+      <div><b>Virginia Advance Directive Registry</b><p>Store yours so providers can find it.</p><a href="https://www.vdh.virginia.gov/commissioner/advance-health-care-directive-registry/">https://www.vdh.virginia.gov/commissioner/advance-health-care-directive-registry/</a></div>
       <div><b>Florida advance directives</b><p>Living will, health care surrogate and donation forms.</p><a href="https://quality.healthfinder.fl.gov/report-guides/advance-directives">https://quality.healthfinder.fl.gov/report-guides/advance-directives</a></div>
-      <div><b>North Carolina Advance Health Care Directive Registry</b><p>Documents must be notarized to register.</p><a href="https://www.sosnc.gov/ahc">https://www.sosnc.gov/ahc</a></div>
+      <div><b>North Carolina Advance Health Care Directive Registry</b><p>Documents must be notarized to register.</p><a href="https://www.sosnc.gov/divisions/advance_healthcare_directives">https://www.sosnc.gov/divisions/advance_healthcare_directives</a></div>
       <div class="privacy">These links go to outside organizations. I'm not a lawyer or a medical provider, so when in doubt, ask your doctor, hospice team or an attorney.</div>
     </div>
   </div>
