@@ -358,9 +358,10 @@ a:hover .arrow::after, .arrow:hover::after { transform: translateX(4px); }
 .shelves { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px 60px; margin-top: 40px; }
 .shelf h3 { font-size: .7rem; letter-spacing: .26em; text-transform: uppercase; font-family: var(--sans); font-weight: 600; color: #6A3F5A; margin: 26px 0 6px; }
 .shelf ul { list-style: none; margin: 0; padding: 0; }
-.shelf li { border-bottom: 1px solid var(--rule); }
-.shelf a { display: block; padding: 14px 0; text-decoration: none; }
-.shelf a:hover b { color: var(--terra); }
+.shelf li { border-bottom: 1px solid var(--rule); padding: 14px 0 16px; }
+.shelf .buy { display: flex; gap: 8px; margin-top: 10px; }
+.shelf .buy a { font-family: var(--sans); font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; padding: 7px 14px; border: 1px solid rgba(106,63,90,.35); border-radius: 999px; color: #6A3F5A; transition: background .25s, color .25s; }
+.shelf .buy a:hover { background: #6A3F5A; color: #fff; }
 .shelf b { font-family: var(--serif); font-size: 1.3rem; font-weight: 600; }
 .shelf .by { display: block; font-size: .88rem; color: var(--muted); }
 .shelf .why { display: block; font-size: .95rem; margin-top: 4px; }

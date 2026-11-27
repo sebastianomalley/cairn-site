@@ -6,16 +6,42 @@ import re
 STRIPE_LINK = ""
 WORKBOOK_PRICE = "$19"
 
-# Bookshop.org affiliate links. Paste your own affiliate link for a title here once you have an account,
-# e.g. AFFILIATE_LINKS["Final Gifts"] = "https://bookshop.org/a/12345/9781451667257".
-AFFILIATE_LINKS = {}
-AFFILIATE_NOTE = "Links go to Bookshop.org, which supports independent bookstores."
+# Book links. Each book shows two buttons, Bookshop.org and Amazon.
+# Once you have accounts:
+#   BOOKSHOP_ID = your Bookshop.org affiliate ID (the number in https://bookshop.org/a/12345/...)
+#   AMAZON_TAG  = your Amazon Associates tracking tag (looks like yourname-20)
+# Or paste a specific link for one title in BOOKSHOP_LINKS / AMAZON_LINKS.
+BOOKSHOP_ID = ""
+AMAZON_TAG = ""
+BOOKSHOP_LINKS = {}
+AMAZON_LINKS = {}
 
-def book_link(title, author):
-    if title in AFFILIATE_LINKS:
-        return AFFILIATE_LINKS[title]
+def affiliate_note():
+    if BOOKSHOP_ID or AMAZON_TAG or BOOKSHOP_LINKS or AMAZON_LINKS:
+        return ("Some of these are affiliate links. If you buy through them I may earn a small commission, at no extra cost to you. "
+                "As an Amazon Associate I earn from qualifying purchases. Bookshop.org also supports independent bookstores.")
+    return "Find each one on Bookshop.org, which supports independent bookstores, or on Amazon."
+
+def _q(title, author):
     from urllib.parse import quote_plus
-    return "https://bookshop.org/search?keywords=" + quote_plus(title + " " + author.split(" and ")[0])
+    return quote_plus(title + " " + author.split(" and ")[0])
+
+def bookshop_link(title, author):
+    if title in BOOKSHOP_LINKS: return BOOKSHOP_LINKS[title]
+    url = "https://bookshop.org/search?keywords=" + _q(title, author)
+    if BOOKSHOP_ID: url += "&a_aid=" + BOOKSHOP_ID
+    return url
+
+def amazon_link(title, author):
+    if title in AMAZON_LINKS: return AMAZON_LINKS[title]
+    url = "https://www.amazon.com/s?k=" + _q(title, author) + "&i=stripbooks"
+    if AMAZON_TAG: url += "&tag=" + AMAZON_TAG
+    return url
+
+def book(title, author, why):
+    return (f'<li><b><i>{title}</i></b><span class="by">{author}</span><span class="why">{why}</span>'
+            f'<span class="buy"><a href="{bookshop_link(title, author)}" target="_blank" rel="noopener sponsored">Bookshop.org</a>'
+            f'<a href="{amazon_link(title, author)}" target="_blank" rel="noopener sponsored">Amazon</a></span></li>')
 
 STEPS = [
     ("what-is-a-doula.html", "One", "Understand", "What a doula is"),
@@ -575,8 +601,8 @@ P["resources.html"] = ("Resources | Everything Is Already All Right",
     <p class="eyebrow">Recommended reading</p>
     <h2>Books I <em>trust</em></h2>
     <p style="max-width:56ch">Some go-to reads for families, caregivers and anyone curious. Take what helps.</p>
-    <div class="shelves"><div class="shelf"><h3>For anyone facing the end, and the people beside them</h3><ul><li><a href="{book_link("Final Gifts", "Maggie Callanan and Patricia Kelley")}" target="_blank" rel="noopener"><b><i>Final Gifts</i></b><span class="by">Maggie Callanan and Patricia Kelley</span><span class="why">Two hospice nurses on understanding what the dying may be trying to tell us.</span></a></li><li><a href="{book_link("Being Mortal", "Atul Gawande")}" target="_blank" rel="noopener"><b><i>Being Mortal</i></b><span class="by">Atul Gawande</span><span class="why">A surgeon on what matters most at the end of life, and how medicine can honor it.</span></a></li><li><a href="{book_link("A Beginner's Guide to the End", "BJ Miller and Shoshana Berger")}" target="_blank" rel="noopener"><b><i>A Beginner's Guide to the End</i></b><span class="by">BJ Miller and Shoshana Berger</span><span class="why">Warm, practical and surprisingly funny. The paperwork, the care, the feelings.</span></a></li><li><a href="{book_link("The Art of Dying Well", "Katy Butler")}" target="_blank" rel="noopener"><b><i>The Art of Dying Well</i></b><span class="by">Katy Butler</span><span class="why">A clear guide to planning for a good end, stage by stage.</span></a></li><li><a href="{book_link("Gone from My Sight", "Barbara Karnes")}" target="_blank" rel="noopener"><b><i>Gone from My Sight</i></b><span class="by">Barbara Karnes</span><span class="why">The small booklet many hospices hand families about the final weeks.</span></a></li></ul></div><div class="shelf"><h3>For grief</h3><ul><li><a href="{book_link("It's OK That You're Not OK", "Megan Devine")}" target="_blank" rel="noopener"><b><i>It's OK That You're Not OK</i></b><span class="by">Megan Devine</span><span class="why">Grief without the pressure to get over it.</span></a></li><li><a href="{book_link("The Wild Edge of Sorrow", "Francis Weller")}" target="_blank" rel="noopener"><b><i>The Wild Edge of Sorrow</i></b><span class="by">Francis Weller</span><span class="why">On grief as something we carry together.</span></a></li></ul></div><div class="shelf"><h3>For children</h3><ul><li><a href="{book_link("The Invisible String", "Patrice Karst")}" target="_blank" rel="noopener"><b><i>The Invisible String</i></b><span class="by">Patrice Karst</span><span class="why">A gentle picture book about staying connected to the people we love.</span></a></li><li><a href="{book_link("Lifetimes", "Bryan Mellonie and Robert Ingpen")}" target="_blank" rel="noopener"><b><i>Lifetimes</i></b><span class="by">Bryan Mellonie and Robert Ingpen</span><span class="why">A simple way to talk with kids about beginnings and endings.</span></a></li></ul></div><div class="shelf"><h3>For pets, and for a lighter touch</h3><ul><li><a href="{book_link("Goodbye, Friend", "Gary Kowalski")}" target="_blank" rel="noopener"><b><i>Goodbye, Friend</i></b><span class="by">Gary Kowalski</span><span class="why">For anyone who has loved and lost an animal.</span></a></li><li><a href="{book_link("Smoke Gets in Your Eyes", "Caitlin Doughty")}" target="_blank" rel="noopener"><b><i>Smoke Gets in Your Eyes</i></b><span class="by">Caitlin Doughty</span><span class="why">A funny, honest look at death from a funeral director.</span></a></li></ul></div></div>
-    <p class="small" style="margin-top:26px">{AFFILIATE_NOTE}</p>
+    <div class="shelves"><div class="shelf"><h3>For anyone facing the end, and the people beside them</h3><ul>{book("Final Gifts", "Maggie Callanan and Patricia Kelley", "Two hospice nurses on understanding what the dying may be trying to tell us.")}{book("Being Mortal", "Atul Gawande", "A surgeon on what matters most at the end of life, and how medicine can honor it.")}{book("A Beginner's Guide to the End", "BJ Miller and Shoshana Berger", "Warm, practical and surprisingly funny. The paperwork, the care, the feelings.")}{book("The Art of Dying Well", "Katy Butler", "A clear guide to planning for a good end, stage by stage.")}{book("Gone from My Sight", "Barbara Karnes", "The small booklet many hospices hand families about the final weeks.")}</ul></div><div class="shelf"><h3>For grief</h3><ul>{book("It's OK That You're Not OK", "Megan Devine", "Grief without the pressure to get over it.")}{book("The Wild Edge of Sorrow", "Francis Weller", "On grief as something we carry together.")}</ul></div><div class="shelf"><h3>For children</h3><ul>{book("The Invisible String", "Patrice Karst", "A gentle picture book about staying connected to the people we love.")}{book("Lifetimes", "Bryan Mellonie and Robert Ingpen", "A simple way to talk with kids about beginnings and endings.")}</ul></div><div class="shelf"><h3>For pets, and for a lighter touch</h3><ul>{book("Goodbye, Friend", "Gary Kowalski", "For anyone who has loved and lost an animal.")}{book("Smoke Gets in Your Eyes", "Caitlin Doughty", "A funny, honest look at death from a funeral director.")}</ul></div></div>
+    <p class="small" style="margin-top:26px">{affiliate_note()}</p>
   </div>
 </section>
 
