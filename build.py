@@ -38,10 +38,22 @@ def amazon_link(title, author):
     if AMAZON_TAG: url += "&tag=" + AMAZON_TAG
     return url
 
+# Real cover images go here once Bookshop approves you, e.g. COVER_IMAGES["Final Gifts"] = "https://...".
+COVER_IMAGES = {}
+_SPINES = ["#3E3352", "#8E5E6E", "#6F7F6A", "#C98A6B", "#5B4A72", "#A7766B", "#4F6470", "#B98B5E"]
+_book_n = [0]
+
 def book(title, author, why):
-    return (f'<li><b><i>{title}</i></b><span class="by">{author}</span><span class="why">{why}</span>'
+    i = _book_n[0]; _book_n[0] += 1
+    if title in COVER_IMAGES:
+        cover = f'<img class="cover" src="{COVER_IMAGES[title]}" alt="Cover of {title}" loading="lazy">'
+    else:
+        tilt = (-3, 2, -1.5, 3, -2, 1.5)[i % 6]
+        cover = (f'<span class="cover spine" aria-hidden="true" style="--c:{_SPINES[i % len(_SPINES)]};--t:{tilt}deg">'
+                 f'<span class="st">{title}</span><span class="sa">{author.split(" and ")[0].split()[-1]}</span></span>')
+    return (f'<li>{cover}<div class="info"><b><i>{title}</i></b><span class="by">{author}</span><span class="why">{why}</span>'
             f'<span class="buy"><a href="{bookshop_link(title, author)}" target="_blank" rel="noopener sponsored">Bookshop.org</a>'
-            f'<a href="{amazon_link(title, author)}" target="_blank" rel="noopener sponsored">Amazon</a></span></li>')
+            f'<a href="{amazon_link(title, author)}" target="_blank" rel="noopener sponsored">Amazon</a></span></div></li>')
 
 STEPS = [
     ("what-is-a-doula.html", "One", "Understand", "What a doula is"),

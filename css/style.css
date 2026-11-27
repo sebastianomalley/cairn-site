@@ -358,7 +358,13 @@ a:hover .arrow::after, .arrow:hover::after { transform: translateX(4px); }
 .shelves { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px 60px; margin-top: 40px; }
 .shelf h3 { font-size: .7rem; letter-spacing: .26em; text-transform: uppercase; font-family: var(--sans); font-weight: 600; color: #6A3F5A; margin: 26px 0 6px; }
 .shelf ul { list-style: none; margin: 0; padding: 0; }
-.shelf li { border-bottom: 1px solid var(--rule); padding: 14px 0 16px; }
+.shelf li { border-bottom: 1px solid var(--rule); padding: 18px 0 18px; display: grid; grid-template-columns: 74px 1fr; gap: 20px; align-items: start; }
+.shelf .cover { width: 74px; height: 108px; border-radius: 3px 5px 5px 3px; box-shadow: 0 14px 22px -12px rgba(30,34,48,.55); transform: rotate(var(--t, -2deg)); transition: transform .4s ease; object-fit: cover; }
+.shelf li:hover .cover { transform: rotate(0deg) translateY(-3px); }
+.shelf .spine { display: flex; flex-direction: column; justify-content: space-between; padding: 12px 8px 9px 13px; color: #FBF4EC; position: relative; overflow: hidden;
+  background: linear-gradient(90deg, rgba(0,0,0,.22) 0 5px, rgba(255,255,255,.12) 5px 6px, transparent 6px), radial-gradient(circle at 75% 15%, rgba(255,255,255,.22), transparent 60%), var(--c); }
+.shelf .spine .st { font-family: var(--serif); font-style: italic; font-size: .74rem; line-height: 1.12; }
+.shelf .spine .sa { font-family: var(--sans); font-size: .5rem; letter-spacing: .18em; text-transform: uppercase; opacity: .8; }
 .shelf .buy { display: flex; gap: 8px; margin-top: 10px; }
 .shelf .buy a { font-family: var(--sans); font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; padding: 7px 14px; border: 1px solid rgba(106,63,90,.35); border-radius: 999px; color: #6A3F5A; transition: background .25s, color .25s; }
 .shelf .buy a:hover { background: #6A3F5A; color: #fff; }
