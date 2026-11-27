@@ -418,3 +418,5 @@ a:hover .arrow::after, .arrow:hover::after { transform: translateX(4px); }
   html:not(.logo-seen) .land-logo.logo-draw .ring { animation-duration: 2.3s; animation-delay: .4s; }
   html:not(.logo-seen) .land-logo.logo-draw .words { animation-delay: 2s; animation-duration: 1.4s; }
 }
+
+a.cover.spine { text-decoration: none; display: flex; }

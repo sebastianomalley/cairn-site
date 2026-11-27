@@ -89,7 +89,7 @@ def book(title, author, why):
     if not src and USE_BOOKSHOP_COVERS and ISBNS.get(title) and title not in NOT_ON_BOOKSHOP:
         src = f"https://images-us.bookshop.org/ingram/{ISBNS[title]}.jpg?width=300"
     img = (f'<img src="{src}" alt="Cover of {title}" loading="lazy" onerror="this.remove()">' if src else "")
-    cover = (f'<span class="cover spine" style="--c:{_SPINES[i % len(_SPINES)]};--t:{tilt}deg">{spine}{img}</span>')
+    cover = (f'<a class="cover spine" href="{bookshop_link(title, author)}" target="_blank" rel="noopener sponsored" style="--c:{_SPINES[i % len(_SPINES)]};--t:{tilt}deg">{spine}{img}</a>')
     return (f'<li>{cover}<div class="info"><b><i>{title}</i></b><span class="by">{author}</span><span class="why">{why}</span>'
             f'<span class="buy"><a href="{bookshop_link(title, author)}" target="_blank" rel="noopener sponsored">Bookshop.org</a>'
             f'<a href="{amazon_link(title, author)}" target="_blank" rel="noopener sponsored">Amazon</a></span></div></li>')
