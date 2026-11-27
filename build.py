@@ -11,16 +11,19 @@ WORKBOOK_PRICE = "$19"
 #   BOOKSHOP_ID = your Bookshop.org affiliate ID (the number in https://bookshop.org/a/12345/...)
 #   AMAZON_TAG  = your Amazon Associates tracking tag (looks like yourname-20)
 # Or paste a specific link for one title in BOOKSHOP_LINKS / AMAZON_LINKS.
-BOOKSHOP_ID = ""
+BOOKSHOP_ID = "132116"
 AMAZON_TAG = ""
 BOOKSHOP_LINKS = {}
 AMAZON_LINKS = {}
 
 def affiliate_note():
-    if BOOKSHOP_ID or AMAZON_TAG or BOOKSHOP_LINKS or AMAZON_LINKS:
-        return ("Some of these are affiliate links. If you buy through them I may earn a small commission, at no extra cost to you. "
-                "As an Amazon Associate I earn from qualifying purchases. Bookshop.org also supports independent bookstores.")
-    return "Find each one on Bookshop.org, which supports independent bookstores, or on Amazon."
+    parts = []
+    if BOOKSHOP_ID or BOOKSHOP_LINKS or AMAZON_TAG or AMAZON_LINKS:
+        parts.append("Some of these are affiliate links. If you buy through them I may earn a small commission, at no extra cost to you.")
+    if AMAZON_TAG or AMAZON_LINKS:
+        parts.append("As an Amazon Associate I earn from qualifying purchases.")
+    parts.append("Bookshop.org supports independent bookstores.")
+    return " ".join(parts)
 
 def _q(title, author):
     from urllib.parse import quote_plus
