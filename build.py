@@ -186,22 +186,9 @@ P["doula.html"] = ("End-of-Life Doula Care | Everything Is Already All Right",
     </div>
   </div>
 </section>
-{journey()}
-
-<section class="sec">
-  <div class="wrap split">
-    <div class="side"><div class="stick"><p class="eyebrow">Welcome</p><h2>However you got here, <em>you're welcome.</em></h2></div></div>
-    <div class="main reveal">
-      <p class="lede">Maybe you're caring for someone you love. Maybe you're planning ahead. Maybe someone mentioned a "death doula" and you're quietly wondering what that even means.</p>
-      <p>This can feel like a lot. That's normal. This site is set up to walk you through it one step at a time, at whatever pace feels okay. Nothing here asks you to commit to anything.</p>
-      <p>If at any point you'd rather just talk, I'm a phone call away.</p>
-    </div>
-  </div>
-</section>
-
 <section class="sec tone-sage">
   <div class="wrap split">
-    <div class="side"><div class="stick"><p class="eyebrow">Is this you?</p><h2>This might be for you <em>if...</em></h2></div></div>
+    <div class="side"><div class="stick"><p class="eyebrow">However you got here</p><h2>This might be for you <em>if...</em></h2><p class="side-note">Nothing here asks you to commit to anything. Take it one step at a time.</p></div></div>
     <ul class="main fit-list reveal">
       <li>You or someone you love has received a hard diagnosis</li>
       <li>You're caring for a parent, partner or friend and feeling stretched thin</li>
@@ -232,7 +219,6 @@ P["doula.html"] = ("End-of-Life Doula Care | Everything Is Already All Right",
     <div class="side"><div class="stick"><p class="eyebrow">For everyone</p><h2>Every faith, every family, <em>every way of saying goodbye.</em></h2></div></div>
     <div class="main reveal">
       <p class="lede">There's no one right way to die, grieve or remember. Your beliefs, your culture and your family's traditions lead. I follow.</p>
-      <p class="muted-on-dark">I'll take the time to learn what matters to you, and help bring in the people and practices that make it feel like yours, from your faith leader to your grandmother's prayers to the music you grew up on.</p>
       <div class="welcome-list"><span>Any faith or none</span><span>Every culture and tradition</span><span>Every kind of family</span><span>LGBTQ+ welcome</span><span>People and their pets</span></div>
     </div>
   </div>
@@ -244,7 +230,6 @@ P["doula.html"] = ("End-of-Life Doula Care | Everything Is Already All Right",
     <p class="quote-by">Jason O'Malley</p>
   </div>
 </section>
-{nxt("what-is-a-doula.html", "Step one", "What exactly is a <em>death doula?</em>")}
 ''')
 
 # ---------------------------------------------------------------- STEP 1
