@@ -348,3 +348,20 @@ a:hover .arrow::after, .arrow:hover::after { transform: translateX(4px); }
 .dogs img { width: 100%; aspect-ratio: 4/5; object-fit: cover; }
 .dogs figcaption { font-family: var(--serif); font-style: italic; font-size: 1.25rem; text-align: center; margin-top: 10px; }
 @media (max-width: 960px) { .about-intro, .dogs { grid-template-columns: 1fr; } .dogs figure { max-width: 300px; margin: 0 auto; } .about-photo { max-width: 360px; } }
+
+/* Fit list */
+.fit-list { list-style: none; margin: 0; padding: 0; columns: 2; column-gap: 40px; }
+.fit-list li { break-inside: avoid; position: relative; padding: 14px 0 14px 34px; border-bottom: 1px solid var(--rule); }
+.fit-list li::before { content: ""; position: absolute; left: 0; top: 21px; width: 16px; height: 16px; border-radius: 50%; border: 1.5px solid var(--sage); }
+.fit-list li::after { content: ""; position: absolute; left: 5px; top: 26px; width: 6px; height: 6px; border-radius: 50%; background: var(--sage); }
+/* Reading */
+.shelves { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px 60px; margin-top: 40px; }
+.shelf h3 { font-size: .7rem; letter-spacing: .26em; text-transform: uppercase; font-family: var(--sans); font-weight: 600; color: #6A3F5A; margin: 26px 0 6px; }
+.shelf ul { list-style: none; margin: 0; padding: 0; }
+.shelf li { border-bottom: 1px solid var(--rule); }
+.shelf a { display: block; padding: 14px 0; text-decoration: none; }
+.shelf a:hover b { color: var(--terra); }
+.shelf b { font-family: var(--serif); font-size: 1.3rem; font-weight: 600; }
+.shelf .by { display: block; font-size: .88rem; color: var(--muted); }
+.shelf .why { display: block; font-size: .95rem; margin-top: 4px; }
+@media (max-width: 960px) { .fit-list { columns: 1; } .shelves { grid-template-columns: 1fr; } }

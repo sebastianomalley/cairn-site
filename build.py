@@ -6,6 +6,17 @@ import re
 STRIPE_LINK = ""
 WORKBOOK_PRICE = "$19"
 
+# Bookshop.org affiliate links. Paste your own affiliate link for a title here once you have an account,
+# e.g. AFFILIATE_LINKS["Final Gifts"] = "https://bookshop.org/a/12345/9781451667257".
+AFFILIATE_LINKS = {}
+AFFILIATE_NOTE = "Links go to Bookshop.org, which supports independent bookstores."
+
+def book_link(title, author):
+    if title in AFFILIATE_LINKS:
+        return AFFILIATE_LINKS[title]
+    from urllib.parse import quote_plus
+    return "https://bookshop.org/search?keywords=" + quote_plus(title + " " + author.split(" and ")[0])
+
 STEPS = [
     ("what-is-a-doula.html", "One", "Understand", "What a doula is"),
     ("ways-i-help.html", "Two", "Explore", "Ways I can help"),
@@ -110,6 +121,22 @@ P["doula.html"] = ("End-of-Life Doula Care | Everything Is Already All Right",
       <p>This can feel like a lot. That's normal. This site is set up to walk you through it one step at a time, at whatever pace feels okay. Nothing here asks you to commit to anything.</p>
       <p>If at any point you'd rather just talk, I'm a phone call away.</p>
     </div>
+  </div>
+</section>
+
+<section class="sec tone-sage">
+  <div class="wrap split">
+    <div class="side"><div class="stick"><p class="eyebrow">Is this you?</p><h2>This might be for you <em>if...</em></h2></div></div>
+    <ul class="main fit-list reveal">
+      <li>You or someone you love has received a hard diagnosis</li>
+      <li>You're caring for a parent, partner or friend and feeling stretched thin</li>
+      <li>Hospice is involved, and you'd like more time and support around it</li>
+      <li>You want your wishes written down while there's no rush</li>
+      <li>You're not sure what to expect at the end and want someone steady beside you</li>
+      <li>Your family has its own faith, culture or traditions you want honored</li>
+      <li>A beloved pet is nearing the end</li>
+      <li>You've lost someone and don't know where to start</li>
+    </ul>
   </div>
 </section>
 
@@ -279,7 +306,7 @@ P["ways-i-help.html"] = ("Ways I can help | Everything Is Already All Right",
     <h2 style="margin-bottom:46px">Before, during <em>and after</em></h2>
     <div class="menu reveal">
       <div class="item"><span class="when">Before</span><h3>Planning conversations</h3><p>Unhurried time to talk through what matters, what you want and what worries you.</p></div>
-      <div class="item"><span class="when">Before</span><h3>Getting wishes in order</h3><p>Help thinking through your advance directive and getting it to the right people. Not legal advice, just a guide through it.</p></div>
+      <div class="item"><span class="when">Before</span><h3>Help with the paperwork</h3><p>Advance directives, naming a health care agent, talking with your doctor about a POLST or MOST form, organ donation, funeral pre-planning, and pulling together where important papers live. I walk you through it and help get it to the right people. I'm not a lawyer, so legal questions go to one.</p></div>
       <div class="item"><span class="when">During</span><h3>Companioning visits</h3><p>Regular time together for conversation, comfort, reading aloud or simply sitting quietly.</p></div>
       <div class="item"><span class="when">During</span><h3>Vigil planning and presence</h3><p>Shaping the space for the final days, honoring your rituals and traditions, and keeping watch alongside your family.</p></div>
       <div class="item"><span class="when">During</span><h3>Respite for caregivers</h3><p>Someone trusted to stay close so the people caring for you can rest.</p></div>
@@ -543,6 +570,16 @@ P["resources.html"] = ("Resources | Everything Is Already All Right",
   </span>
 </a>
 
+<section class="sec tone-lav" id="reading">
+  <div class="wrap">
+    <p class="eyebrow">Recommended reading</p>
+    <h2>Books I <em>trust</em></h2>
+    <p style="max-width:56ch">Some go-to reads for families, caregivers and anyone curious. Take what helps.</p>
+    <div class="shelves"><div class="shelf"><h3>For anyone facing the end, and the people beside them</h3><ul><li><a href="{book_link("Final Gifts", "Maggie Callanan and Patricia Kelley")}" target="_blank" rel="noopener"><b><i>Final Gifts</i></b><span class="by">Maggie Callanan and Patricia Kelley</span><span class="why">Two hospice nurses on understanding what the dying may be trying to tell us.</span></a></li><li><a href="{book_link("Being Mortal", "Atul Gawande")}" target="_blank" rel="noopener"><b><i>Being Mortal</i></b><span class="by">Atul Gawande</span><span class="why">A surgeon on what matters most at the end of life, and how medicine can honor it.</span></a></li><li><a href="{book_link("A Beginner's Guide to the End", "BJ Miller and Shoshana Berger")}" target="_blank" rel="noopener"><b><i>A Beginner's Guide to the End</i></b><span class="by">BJ Miller and Shoshana Berger</span><span class="why">Warm, practical and surprisingly funny. The paperwork, the care, the feelings.</span></a></li><li><a href="{book_link("The Art of Dying Well", "Katy Butler")}" target="_blank" rel="noopener"><b><i>The Art of Dying Well</i></b><span class="by">Katy Butler</span><span class="why">A clear guide to planning for a good end, stage by stage.</span></a></li><li><a href="{book_link("Gone from My Sight", "Barbara Karnes")}" target="_blank" rel="noopener"><b><i>Gone from My Sight</i></b><span class="by">Barbara Karnes</span><span class="why">The small booklet many hospices hand families about the final weeks.</span></a></li></ul></div><div class="shelf"><h3>For grief</h3><ul><li><a href="{book_link("It's OK That You're Not OK", "Megan Devine")}" target="_blank" rel="noopener"><b><i>It's OK That You're Not OK</i></b><span class="by">Megan Devine</span><span class="why">Grief without the pressure to get over it.</span></a></li><li><a href="{book_link("The Wild Edge of Sorrow", "Francis Weller")}" target="_blank" rel="noopener"><b><i>The Wild Edge of Sorrow</i></b><span class="by">Francis Weller</span><span class="why">On grief as something we carry together.</span></a></li></ul></div><div class="shelf"><h3>For children</h3><ul><li><a href="{book_link("The Invisible String", "Patrice Karst")}" target="_blank" rel="noopener"><b><i>The Invisible String</i></b><span class="by">Patrice Karst</span><span class="why">A gentle picture book about staying connected to the people we love.</span></a></li><li><a href="{book_link("Lifetimes", "Bryan Mellonie and Robert Ingpen")}" target="_blank" rel="noopener"><b><i>Lifetimes</i></b><span class="by">Bryan Mellonie and Robert Ingpen</span><span class="why">A simple way to talk with kids about beginnings and endings.</span></a></li></ul></div><div class="shelf"><h3>For pets, and for a lighter touch</h3><ul><li><a href="{book_link("Goodbye, Friend", "Gary Kowalski")}" target="_blank" rel="noopener"><b><i>Goodbye, Friend</i></b><span class="by">Gary Kowalski</span><span class="why">For anyone who has loved and lost an animal.</span></a></li><li><a href="{book_link("Smoke Gets in Your Eyes", "Caitlin Doughty")}" target="_blank" rel="noopener"><b><i>Smoke Gets in Your Eyes</i></b><span class="by">Caitlin Doughty</span><span class="why">A funny, honest look at death from a funeral director.</span></a></li></ul></div></div>
+    <p class="small" style="margin-top:26px">{AFFILIATE_NOTE}</p>
+  </div>
+</section>
+
 <section class="sec tone-sand">
   <div class="wrap split">
     <div class="side"><div class="stick"><p class="eyebrow">Official forms</p><h2>Make it <em>official</em></h2><p class="small">An advance directive lets you name who speaks for you and write down your medical wishes. Every state has its own version, so always check the official source.</p></div></div>
@@ -618,9 +655,9 @@ P["about.html"] = ("About Jason | Everything Is Already All Right",
   <div class="wrap split">
     <div class="side"><div class="stick"><p class="eyebrow">Training and membership</p><h2>The <em>details</em></h2></div></div>
     <div class="main res-list">
-      <div><b>Certified End-of-Life Doula</b><p>University of Vermont, 2025</p></div>
-      <div><b>Companion Animal End-of-Life Doula</b><p>University of Vermont, 2026</p></div>
-      <div><b>Member, National End-of-Life Doula Alliance (NEDA)</b><p>A national community of end-of-life doulas</p></div>
+      <div><b>Certified End-of-Life Doula</b><p>University of Vermont, 2025</p><a href="https://learn.uvm.edu/program/end-of-life-doula-certificate/">https://learn.uvm.edu/program/end-of-life-doula-certificate/</a></div>
+      <div><b>Companion Animal End-of-Life Doula</b><p>University of Vermont, 2026</p><a href="https://learn.uvm.edu/program/end-of-life-doula-certificate/">https://learn.uvm.edu/program/end-of-life-doula-certificate/</a></div>
+      <div><b>Member, National End-of-Life Doula Alliance (NEDA)</b><p>A national nonprofit that sets standards of practice for end-of-life doulas</p><a href="https://nedalliance.org/">https://nedalliance.org/</a></div>
       <div><b>Background</b><p>Years in film, live events and teaching, which is where the legacy films come from</p></div>
       <p class="small" style="margin-top:20px">Insured as an end-of-life doula. Doulas provide non-medical support.</p>
     </div>
