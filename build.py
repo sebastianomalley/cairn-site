@@ -26,16 +26,44 @@ def _q(title, author):
     from urllib.parse import quote_plus
     return quote_plus(title + " " + author.split(" and ")[0])
 
+# Each book's paperback ISBN, so the buttons open the book itself, not a search.
+ISBNS = {
+    "Final Gifts": "9781451667257",
+    "Being Mortal": "9781250076229",
+    "A Beginner's Guide to the End": "9781501157219",
+    "The Art of Dying Well": "9781501135477",
+    "Gone from My Sight": "9780962160318",
+    "It's OK That You're Not OK": "9781622039074",
+    "The Wild Edge of Sorrow": "9781583949764",
+    "The Invisible String": "9780316486231",
+    "Lifetimes": "9780553344028",
+    "Goodbye, Friend": "9781608680863",
+    "Smoke Gets in Your Eyes": "9780393351903",
+}
+
+# Bookshop doesn't stock these, so their Bookshop button falls back to a search.
+NOT_ON_BOOKSHOP = {"Gone from My Sight"}
+
+def _isbn10(isbn13):
+    core = isbn13[3:12]
+    s = sum((10 - i) * int(d) for i, d in enumerate(core)) % 11
+    c = (11 - s) % 11
+    return core + ("X" if c == 10 else str(c))
+
 def bookshop_link(title, author):
     if title in BOOKSHOP_LINKS: return BOOKSHOP_LINKS[title]
+    isbn = ISBNS.get(title) if title not in NOT_ON_BOOKSHOP else None
+    if isbn:
+        return f"https://bookshop.org/a/{BOOKSHOP_ID}/{isbn}" if BOOKSHOP_ID else f"https://bookshop.org/book/{isbn}"
     url = "https://bookshop.org/search?keywords=" + _q(title, author)
     if BOOKSHOP_ID: url += "&a_aid=" + BOOKSHOP_ID
     return url
 
 def amazon_link(title, author):
     if title in AMAZON_LINKS: return AMAZON_LINKS[title]
-    url = "https://www.amazon.com/s?k=" + _q(title, author) + "&i=stripbooks"
-    if AMAZON_TAG: url += "&tag=" + AMAZON_TAG
+    isbn = ISBNS.get(title)
+    url = ("https://www.amazon.com/dp/" + _isbn10(isbn)) if isbn else ("https://www.amazon.com/s?k=" + _q(title, author) + "&i=stripbooks")
+    if AMAZON_TAG: url += ("&" if "?" in url else "?") + "tag=" + AMAZON_TAG
     return url
 
 # Real cover images go here once Bookshop approves you, e.g. COVER_IMAGES["Final Gifts"] = "https://...".
@@ -54,6 +82,9 @@ def book(title, author, why):
     return (f'<li>{cover}<div class="info"><b><i>{title}</i></b><span class="by">{author}</span><span class="why">{why}</span>'
             f'<span class="buy"><a href="{bookshop_link(title, author)}" target="_blank" rel="noopener sponsored">Bookshop.org</a>'
             f'<a href="{amazon_link(title, author)}" target="_blank" rel="noopener sponsored">Amazon</a></span></div></li>')
+
+import hashlib as _h
+CSS_V = _h.md5(open("css/style.css","rb").read()).hexdigest()[:8]
 
 STEPS = [
     ("what-is-a-doula.html", "One", "Understand", "What a doula is"),
@@ -81,7 +112,7 @@ def head(title, desc, current):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css?v={CSS_V}">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
