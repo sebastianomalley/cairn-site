@@ -71,17 +71,20 @@ def amazon_link(title, author):
 
 # Real cover images go here once Bookshop approves you, e.g. COVER_IMAGES["Final Gifts"] = "https://...".
 COVER_IMAGES = {}
+# Show the cover images Bookshop serves for each ISBN. If one fails to load, the colored placeholder shows instead.
+USE_BOOKSHOP_COVERS = True
 _SPINES = ["#3E3352", "#8E5E6E", "#6F7F6A", "#C98A6B", "#5B4A72", "#A7766B", "#4F6470", "#B98B5E"]
 _book_n = [0]
 
 def book(title, author, why):
     i = _book_n[0]; _book_n[0] += 1
-    if title in COVER_IMAGES:
-        cover = f'<img class="cover" src="{COVER_IMAGES[title]}" alt="Cover of {title}" loading="lazy">'
-    else:
-        tilt = (-3, 2, -1.5, 3, -2, 1.5)[i % 6]
-        cover = (f'<span class="cover spine" aria-hidden="true" style="--c:{_SPINES[i % len(_SPINES)]};--t:{tilt}deg">'
-                 f'<span class="st">{title}</span><span class="sa">{author.split(" and ")[0].split()[-1]}</span></span>')
+    tilt = (-3, 2, -1.5, 3, -2, 1.5)[i % 6]
+    spine = (f'<span class="st">{title}</span><span class="sa">{author.split(" and ")[0].split()[-1]}</span>')
+    src = COVER_IMAGES.get(title)
+    if not src and USE_BOOKSHOP_COVERS and ISBNS.get(title) and title not in NOT_ON_BOOKSHOP:
+        src = f"https://images-us.bookshop.org/ingram/{ISBNS[title]}.jpg?width=300"
+    img = (f'<img src="{src}" alt="Cover of {title}" loading="lazy" onerror="this.remove()">' if src else "")
+    cover = (f'<span class="cover spine" style="--c:{_SPINES[i % len(_SPINES)]};--t:{tilt}deg">{spine}{img}</span>')
     return (f'<li>{cover}<div class="info"><b><i>{title}</i></b><span class="by">{author}</span><span class="why">{why}</span>'
             f'<span class="buy"><a href="{bookshop_link(title, author)}" target="_blank" rel="noopener sponsored">Bookshop.org</a>'
             f'<a href="{amazon_link(title, author)}" target="_blank" rel="noopener sponsored">Amazon</a></span></div></li>')
